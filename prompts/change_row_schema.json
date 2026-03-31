@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "description": "Section path or page reference"
+          },
+          "item": {
+            "type": "string",
+            "description": "Changed item (Section > Sub-item)"
+          },
+          "previous_version": {
+            "type": "string",
+            "description": "Content before change (quote original text)"
+          },
+          "current_version": {
+            "type": "string",
+            "description": "Content after change (quote original text)"
+          },
+          "note": {
+            "type": "string",
+            "description": "Reason for change or remark"
+          }
+        },
+        "required": ["page", "item", "previous_version", "current_version", "note"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["rows"],
+  "additionalProperties": false
+}

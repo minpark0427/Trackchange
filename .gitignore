@@ -1,0 +1,10 @@
+work/
+.sisyphus/
+__pycache__/
+*.pyc
+*.pdf
+.DS_Store
+
+# 임상시험 프로토콜 원본 (기밀)
+*.docx
+!prompts/*.json
