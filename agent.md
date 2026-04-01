@@ -16,7 +16,7 @@
 - `shell=True` in subprocess 금지
 
 ### 참고 양식
-`SAMPLE_PROTOCOL001_Clinical Protocol_Comparison Table of Change_Ver1.0_to_Ver2.0_20Mar2024.docx`를 기준으로:
+변경대비표 참고 양식 DOCX를 기준으로:
 - Page 열: 실제 페이지 번호 (예: "12-14", "37-40", "54, 56, 57", "전체")
 - Item 열: 섹션 계층 포함 (예: "5. 임상시험 디자인\n\n5.1. 디자인 설명")
 - Previous/Current: 핵심 변경 내용 원문 인용
@@ -39,6 +39,6 @@ Phase 4 (로컬): → 변경대비표.docx
 - `run_diff.py`에서 change_candidates에 `page_hint` 필드로 주입
 
 ### 테스트
-- 예시 파일: `SPONSOR_PROTOCOL001_..._V1.docx`, `V2.docx`
+- 테스트용 프로토콜 DOCX (V1, V2)로 검증
 - 참고 양식과 비교하여 Page/Item 열 형태가 일치하는지 확인
-- 변경대비표 양식(SAMPLE_PROTOCOL)의 25행은 **다른 프로토콜**의 예시임 — 내용 대조 대상 아님
+- 변경대비표 참고 양식의 행은 다른 프로토콜의 예시임 — 내용 대조 대상 아님

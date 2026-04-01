@@ -51,7 +51,7 @@ nav:
   - 리서치:
     - DOCX 비교 스킬 조사: 변경대비표 skill.md
   - 검증:
-    - YH00000 검증 보고서: DOCX 변경대비표 자동 생성 시스템 — YH00000 검증 보고서.md
-    - YH00000 Phase 5 검증: DOCX 변경대비표 — YH00000 Phase 5 검증 보고서.md
+    - 검증 보고서: DOCX 변경대비표 자동 생성 시스템 — 검증 보고서.md
+    - Phase 5 검증: DOCX 변경대비표 — Phase 5 검증 보고서.md
   - 개발자:
     - Agent 가이드: agent.md

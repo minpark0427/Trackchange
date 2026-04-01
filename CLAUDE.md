@@ -46,11 +46,11 @@ python3 scripts/run_validate.py \
 1. **XML 직접 순회** — python-docx API 아닌 lxml으로 w:body 직계 자식 순회 (혼합 콘텐츠 순서 보존)
 2. **로컬 diff + Claude 정리** — 변경 감지는 로컬 Python, Claude는 행 정리만
 3. **자동 번호 복원** — numbering.xml 파싱으로 Word 표시 번호와 동일하게 재현 (빈 heading 건너뛰기, numId=0 전문 구분)
-4. **참고 양식 준수** — SAMPLE_PROTOCOL 변경대비표 5열 양식(Page|Item|Previous|Current|Note) 매칭
+4. **참고 양식 준수** — 5열 양식(Page|Item|Previous|Current|Note) 매칭
 
 ## 참고 파일
-- `SAMPLE_PROTOCOL-101_...docx` — 변경대비표 참고 양식 (5열 포맷, 페이지 번호 포함)
-- `SPONSOR_PROTOCOL001_..._V1.docx` / `V2.docx` — 테스트용 프로토콜 문서
+- 변경대비표 참고 양식 DOCX (5열 포맷, 페이지 번호 포함)
+- 테스트용 프로토콜 DOCX (V1, V2)
 
 ## 중간 산출물 (work/)
 ```
