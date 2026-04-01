@@ -1,0 +1,58 @@
+site_name: 변경대비표 자동 생성기
+site_url: https://minpark0427.github.io/Trackchange/
+site_description: 임상시험 프로토콜 DOCX 비교 및 변경대비표(Comparison Table of Change) 자동 생성 도구
+docs_dir: docs
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: README.md
+  - 시작하기:
+    - 빠른 참조: CLAUDE.md
+    - 파이프라인 사용 가이드: 문서 분할 파이프라인 사용 가이드.md
+  - 아키텍처:
+    - 시스템 설계 문서: 변경대비표 자동화 시스템 설계 문서.md
+    - 단계별 문서 분할: 문서 나누기 단계별.md
+  - 리서치:
+    - DOCX 비교 스킬 조사: 변경대비표 skill.md
+    - 문서 업로드 조사: 2026-03-31_문서 업로드 조사.md
+  - 검증:
+    - YH00000 검증 보고서: DOCX 변경대비표 자동 생성 시스템 — YH00000 검증 보고서.md
+    - YH00000 Phase 5 검증: DOCX 변경대비표 — YH00000 Phase 5 검증 보고서.md
+  - 개발자:
+    - Agent 가이드: agent.md
