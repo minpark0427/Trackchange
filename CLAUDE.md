@@ -11,6 +11,12 @@ python3 scripts/run_split.py --old "V1.docx" --new "V2.docx" --out work/
 python3 scripts/run_diff.py --work-dir work/ --out work/diff/change_candidates.json
 python3 scripts/run_rows.py --work-dir work/ --out work/rows/change_rows.json
 python3 scripts/run_export.py --work-dir work/ --out-dir work/output/
+
+# 검증 (Phase 5, 선택사항 — 수동 작성 변경대비표와 비교)
+python3 scripts/run_validate.py \
+  --reference "수동_변경대비표.docx" \
+  --generated work/output/generated.docx \
+  --out-dir work/validation/
 ```
 
 또는 Claude Code Skill로: `변경대비표 만들어줘`
@@ -33,6 +39,8 @@ python3 scripts/run_export.py --work-dir work/ --out-dir work/output/
 | `scripts/diff_headers.py` | Header/Footer diff |
 | `scripts/generate_rows.py` | Claude CLI 병렬 호출 (ThreadPoolExecutor) |
 | `scripts/export_docx.py` | 변경대비표 DOCX 생성 |
+| `scripts/validate_table.py` | 생성 vs 수동 변경대비표 매칭/점수 산출 |
+| `scripts/run_validate.py` | Phase 5: 검증 보고서 생성 |
 
 ## 설계 원칙
 1. **XML 직접 순회** — python-docx API 아닌 lxml으로 w:body 직계 자식 순회 (혼합 콘텐츠 순서 보존)
@@ -51,7 +59,8 @@ work/
 ├── new/          (same)
 ├── diff/         change_candidates.json
 ├── rows/         change_rows.json
-└── output/       최종 변경대비표 DOCX
+├── output/       최종 변경대비표 DOCX
+└── validation/   validation_report.json (Phase 5)
 ```
 
 ## 주의사항

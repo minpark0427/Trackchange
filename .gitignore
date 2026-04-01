@@ -1,10 +1,15 @@
 work/
+work_*/
 .sisyphus/
 __pycache__/
 *.pyc
 *.pdf
 .DS_Store
+*.egg-info/
+dist/
+build/
 
 # 임상시험 프로토콜 원본 (기밀)
 *.docx
 !prompts/*.json
+site/

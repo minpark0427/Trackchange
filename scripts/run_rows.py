@@ -47,6 +47,22 @@ def main():
 
     rows = generate_all_rows(str(candidates_path), str(blocks_path), args.max_workers)
 
+    # Sort rows by page number (document order)
+    def _page_sort_key(row):
+        page = row.get("page", "")
+        if not page:
+            return (0, 0)  # front matter first
+        if page == "전체":
+            return (0, 1)  # headers right after front matter
+        # Extract first number from page string (e.g., "18-35" -> 18)
+        import re
+        m = re.search(r"(\d+)", page)
+        if m:
+            return (1, int(m.group(1)))
+        return (2, 0)
+
+    rows.sort(key=_page_sort_key)
+
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:

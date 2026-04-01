@@ -19,9 +19,39 @@ import docx2pdf
 
 
 def _convert_to_pdf(docx_path: str, pdf_path: str):
-    """Convert DOCX to PDF using Microsoft Word."""
+    """Convert DOCX to PDF using Microsoft Word (docx2pdf or AppleScript fallback)."""
+    import subprocess
+
     Path(pdf_path).parent.mkdir(parents=True, exist_ok=True)
-    docx2pdf.convert(docx_path, pdf_path)
+
+    # Try docx2pdf first
+    try:
+        docx2pdf.convert(docx_path, pdf_path)
+        if os.path.exists(pdf_path) and os.path.getsize(pdf_path) > 0:
+            return
+    except Exception:
+        pass
+
+    # Fallback: AppleScript direct Word automation (macOS only)
+    abs_docx = os.path.abspath(docx_path)
+    abs_pdf = os.path.abspath(pdf_path)
+    script = f'''
+tell application "Microsoft Word"
+    open "{abs_docx}"
+    delay 5
+    set theDoc to active document
+    save as theDoc file name "{abs_pdf}" file format format PDF
+    close theDoc saving no
+end tell
+'''
+    result = subprocess.run(
+        ["osascript", "-e", script],
+        capture_output=True, text=True, timeout=120,
+    )
+    if result.returncode != 0 or not os.path.exists(pdf_path):
+        raise RuntimeError(
+            f"PDF conversion failed: {result.stderr[:300]}"
+        )
 
 
 def _extract_heading_pages(pdf_path: str, min_heading_size: float = 13.0) -> list:

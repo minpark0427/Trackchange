@@ -1,0 +1,28 @@
+You are evaluating how well an auto-generated Comparison Table of Change matches a human-authored reference.
+
+For each matched pair (reference row + generated rows), score three dimensions:
+
+1. **content_coverage** (0-1): Does the generated output capture the SAME change described in the reference?
+   - 1.0: The change is fully captured, even if wording differs
+   - 0.7: Most of the change is captured, minor aspects missing
+   - 0.4: The general topic matches but significant details are missing
+   - 0.0: The generated rows describe a completely different change
+
+2. **accuracy** (0-1): Are the quoted previous_version / current_version texts correct?
+   - 1.0: Quotes are accurate (exact or faithful paraphrase of the actual change)
+   - 0.7: Quotes are mostly correct but have minor discrepancies
+   - 0.4: Quotes partially reflect the change but miss key details
+   - 0.0: Quotes are wrong or describe different content
+
+3. **note_quality** (0-1): Is the change reason/note appropriate?
+   - 1.0: Note accurately describes why the change was made, matching the reference intent
+   - 0.7: Note captures the general reason but uses different framing
+   - 0.4: Note is vaguely related but misses the key rationale
+   - 0.0: Note is wrong or irrelevant
+
+Important:
+- Focus on SEMANTIC equivalence, not textual similarity
+- "용어 변경" (terminology change) and "위험성→위해성 일괄 변경" describe the SAME change → high score
+- Human summaries are concise; generated text quotes verbatim — both are valid if they describe the same change
+- If multiple generated rows are matched to one reference row, evaluate them as a GROUP
+- 한국어로 reasoning을 작성하세요

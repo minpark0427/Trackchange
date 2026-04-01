@@ -156,6 +156,14 @@ def generate_all_rows(
     log.info(f"Detected language: {language}")
     log.info(f"Total candidates: {len(candidates)}")
 
+    # Build section order lookup from candidates' position in the list
+    # (candidates are already in document order from Phase 2)
+    section_order = {}
+    for idx, c in enumerate(candidates):
+        sp = c["section_path"]
+        if sp not in section_order:
+            section_order[sp] = idx
+
     # Group by section_path
     groups = defaultdict(list)
     for c in candidates:
@@ -163,9 +171,11 @@ def generate_all_rows(
 
     log.info(f"Section groups: {len(groups)}")
 
-    # Build work items (split large groups)
+    # Build work items (split large groups), preserving section order
     work_items = []
-    for section_path, section_candidates in groups.items():
+    sorted_section_paths = sorted(groups.keys(), key=lambda sp: section_order.get(sp, 999999))
+    for section_path in sorted_section_paths:
+        section_candidates = groups[section_path]
         sub_groups = _split_large_group(section_candidates)
         for i, sub in enumerate(sub_groups):
             label = section_path if len(sub_groups) == 1 else f"{section_path} (part {i+1})"
@@ -173,29 +183,36 @@ def generate_all_rows(
 
     log.info(f"Work items (after splitting): {len(work_items)}")
 
-    # Parallel execution
-    all_rows = []
+    # Parallel execution — tag rows with section order for sorting
+    all_rows = []  # list of (sort_key, row)
     failed = 0
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_label = {}
-        for label, sub_candidates in work_items:
+        future_to_info = {}
+        for wi_idx, (label, sub_candidates) in enumerate(work_items):
             future = executor.submit(
                 generate_rows_for_section, label, sub_candidates, language
             )
-            future_to_label[future] = label
+            # Use section_order + work_item index for stable sort
+            sort_key = section_order.get(label.split(" (part")[0], 999999)
+            future_to_info[future] = (label, sort_key, wi_idx)
 
-        for future in as_completed(future_to_label):
-            label = future_to_label[future]
+        for future in as_completed(future_to_info):
+            label, sort_key, wi_idx = future_to_info[future]
             try:
                 rows = future.result()
                 if rows:
-                    all_rows.extend(rows)
+                    for row in rows:
+                        all_rows.append((sort_key, wi_idx, row))
                 else:
                     failed += 1
             except Exception as e:
                 log.error(f"  [{label[:50]}] unexpected error: {e}")
                 failed += 1
+
+    # Sort by document order
+    all_rows.sort(key=lambda x: (x[0], x[1]))
+    all_rows = [row for _, _, row in all_rows]
 
     log.info(f"Total rows generated: {len(all_rows)}")
     if failed:

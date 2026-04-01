@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "evaluations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref_index": {
+            "type": "integer",
+            "description": "Reference row index (0-based)"
+          },
+          "content_coverage": {
+            "type": "number",
+            "description": "0-1: How well the generated rows cover the change described in the reference row"
+          },
+          "accuracy": {
+            "type": "number",
+            "description": "0-1: How accurately the generated previous/current content quotes match the reference"
+          },
+          "note_quality": {
+            "type": "number",
+            "description": "0-1: How appropriate and accurate the generated note/reason is compared to the reference"
+          },
+          "reasoning": {
+            "type": "string",
+            "description": "Brief explanation of the evaluation in Korean"
+          }
+        },
+        "required": ["ref_index", "content_coverage", "accuracy", "note_quality", "reasoning"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["evaluations"],
+  "additionalProperties": false
+}

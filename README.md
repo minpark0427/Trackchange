@@ -1,159 +1,140 @@
-# 변경대비표 자동 생성기 (DOCX Comparison Table Generator)
+# trackchange — DOCX 변경대비표 자동 생성기
 
-임상시험 프로토콜 등 DOCX 문서 2개 버전을 비교하여 **변경대비표(Comparison Table of Change)** DOCX를 자동으로 생성합니다.
+임상시험 프로토콜 등 DOCX 문서 2개 버전을 비교하여 **변경대비표(Comparison Table of Change)** DOCX를 자동 생성합니다.
 
 ## 결과물 예시
 
-입력: V1.docx, V2.docx → 출력: 5열 변경대비표 DOCX (Landscape, 실제 페이지 번호 포함)
-
 | Page | Item | Previous Version | Current Version | Note |
 |------|------|------------------|-----------------|------|
-| 24 | 1. Introduction<br><br>1.1. Unmet Medical Need | (Karimi-Shah BA., 2015) | (Karimi-Shah BA., Chowdhury BA, 2015) | Added co-author |
-| 30 | 2. Study Objectives and Endpoints<br><br>2.2.2. Secondary Endpoints | refer Section 8.1.2 | refer **to** Section 8.1.2 | Grammatical correction |
-| 32-36 | 3. Study Plan<br><br>3.1. Description of Overall Study Design | (Not present) | SAD5 (1400 mg) \| 8 \| 6 \| 2 | New highest dose group added |
+| 14 | 1. Protocol Summary<br><br>1.1.2. Overall Design | 18세 이상 45세 이하 | 만 19세 이상 45세 이하 | 연령 하한 변경 |
+| 18-35 | 2. Trial Schema<br><br>2.1. Schedule of Activities | 입원(4박 5일) 1회 | 입원(3박 4일) 1회 | 입원 기간 단축 |
 
 ---
 
-## 빠른 시작
+## 설치
 
-### 1. 의존성 설치
+### 요구 사항
+
+- Python 3.8+
+- [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) — Phase 3 행 생성에 필요
+- Microsoft Word (macOS) — 페이지 번호 추출에 필요 (선택사항)
+
+### pip install
 
 ```bash
-pip3 install python-docx lxml diff-match-patch docx2pdf PyMuPDF
+git clone https://github.com/minpark0427/Trackchange.git
+cd Trackchange
+pip install .
 ```
 
-> **참고**: `docx2pdf`는 Microsoft Word가 설치되어 있어야 동작합니다 (페이지 번호 추출용).
+### Claude Code CLI 설치
 
-### 2. 전체 파이프라인 실행
+```bash
+npm install -g @anthropic-ai/claude-code
+claude  # 첫 실행 시 로그인
+```
+
+---
+
+## 사용법
+
+### 변경대비표 생성 (Phase 1→2→3→4)
+
+```bash
+trackchange compare \
+  --old "Protocol_V1.docx" \
+  --new "Protocol_V2.docx" \
+  --out work/
+```
+
+출력: `work/output/Comparison_Table_of_Change_*.docx`
+
+### 검증 (Phase 5, 선택사항)
+
+수동 작성된 변경대비표가 있을 때 자동 생성 결과와 비교:
+
+```bash
+# 텍스트 유사도 기반
+trackchange validate \
+  --reference "수동_변경대비표.docx" \
+  --generated "work/output/generated.docx" \
+  --out-dir work/validation/
+
+# LLM 의미 평가 포함 (권장)
+trackchange validate \
+  --reference "수동_변경대비표.docx" \
+  --generated-json "work/rows/change_rows.json" \
+  --out-dir work/validation/ \
+  --llm
+```
+
+출력: `work/validation/validation_report.json`
+
+### 개별 Phase 실행
 
 ```bash
 # Phase 1: 섹션 분할 + 매칭
-python3 scripts/run_split.py \
-  --old "이전버전.docx" \
-  --new "새버전.docx" \
-  --out work/
+python3 scripts/run_split.py --old V1.docx --new V2.docx --out work/
 
-# Phase 2: 변경 감지 (텍스트/표/이미지/헤더)
-python3 scripts/run_diff.py \
-  --work-dir work/ \
-  --out work/diff/change_candidates.json
+# Phase 2: Diff 감지
+python3 scripts/run_diff.py --work-dir work/ --out work/diff/change_candidates.json
 
-# Phase 3: Claude로 변경대비표 행 생성 (Claude Code CLI 필요)
-python3 scripts/run_rows.py \
-  --work-dir work/ \
-  --out work/rows/change_rows.json
+# Phase 3: Claude CLI로 행 생성
+python3 scripts/run_rows.py --work-dir work/ --out work/rows/change_rows.json
 
-# Phase 4: DOCX 출력
-python3 scripts/run_export.py \
-  --work-dir work/ \
-  --out-dir work/output/
+# Phase 4: DOCX 내보내기
+python3 scripts/run_export.py --work-dir work/ --out-dir work/output/
+
+# Phase 5: 검증
+python3 scripts/run_validate.py --reference ref.docx --generated-json work/rows/change_rows.json --out-dir work/validation/ --llm
 ```
-
-`work/output/` 에 변경대비표 DOCX가 생성됩니다.
-
-### 3. Claude Code Skill로 사용 (권장)
-
-Skill이 `~/.claude/skills/docx-comparison/`에 설치되어 있으면, Claude Code에서 바로 사용 가능합니다:
-
-```
-> 변경대비표 만들어줘
-```
-
-Claude가 파일 경로를 물어본 뒤 자동으로 전체 파이프라인을 실행합니다.
 
 ---
 
 ## 파이프라인 구조
 
 ```
-DOCX V1 ──┐                                    ┌── change_rows.json
-           ├→ Phase 1 → Phase 2 → Phase 3 → Phase 4 → 변경대비표.docx
-DOCX V2 ──┘                                    └── (5열 표, Landscape)
+Phase 1 (Split)     Phase 2 (Diff)      Phase 3 (Rows)     Phase 4 (Export)    Phase 5 (Validate)
+DOCX → blocks    →  text/table/media  →  Claude CLI로     →  5열 변경대비표    →  참조 문서 대비
+→ sections          diff 감지            행 생성             DOCX 생성           정확도 평가
+→ page numbers                           (병렬 처리)                             (LLM 의미 평가)
 ```
 
-| Phase | 역할 | 핵심 기술 | 산출물 |
-|-------|------|----------|--------|
-| **1. Section Split** | DOCX를 Heading 기반 섹션으로 분할 + old↔new 매칭 + 페이지 번호 추출 | lxml XML 순회, 자동번호 복원, docx2pdf+PyMuPDF | `blocks.json`, `section_index.json`, `matched_pairs.json`, `page_map.json` |
-| **2. Diff** | 텍스트/표/이미지/헤더 변경 감지 + 페이지 번호 주입 | diff-match-patch, 셀 단위 표 비교 | `change_candidates.json` (286건, page_hint 포함) |
-| **3. Claude Rows** | 변경 후보를 5열 양식으로 정리 | Claude Code CLI 병렬 호출 | `change_rows.json` (138행) |
-| **4. DOCX Export** | 참고 양식과 동일한 스타일의 DOCX 생성 | python-docx + lxml 테두리 | 최종 `.docx` 파일 |
-
-> Phase 1~2는 Claude 없이 로컬에서 동작합니다. Phase 3만 Claude Code CLI가 필요합니다.
-
----
-
-## 요구사항
-
-- **Python 3.8+**
-- **Microsoft Word** — DOCX→PDF 변환으로 페이지 번호 추출에 필요
-- **Claude Code CLI** (`claude --version`으로 확인) — Phase 3에 필요
-- 패키지: `python-docx`, `lxml`, `diff-match-patch`, `docx2pdf`, `PyMuPDF`
+| Phase | 스크립트 | LLM 필요 | 설명 |
+|:-----:|---------|:--------:|------|
+| 1 | `run_split.py` | No | DOCX → blocks → sections → matching → page numbers |
+| 2 | `run_diff.py` | No | text/table/media/header diff 감지 |
+| 3 | `run_rows.py` | **Yes** | Claude CLI로 변경 후보 → 5열 행 생성 |
+| 4 | `run_export.py` | No | change_rows.json → 변경대비표 DOCX |
+| 5 | `run_validate.py` | Optional | 수동 작성 변경대비표와 비교 검증 |
 
 ---
 
-## 개별 스크립트 사용
+## 중간 산출물
 
-각 스크립트는 독립 실행 가능합니다:
-
-```bash
-# 블록 추출만
-python3 scripts/extract_blocks.py --docx "문서.docx" --out work/new
-
-# 섹션 분할만
-python3 scripts/split_sections.py --blocks work/new/blocks.json --out work/new/section_index.json
-
-# 텍스트 diff만
-python3 scripts/diff_text.py --work-dir work/ --out work/diff/text_candidates.json
-
-# 표 diff만
-python3 scripts/diff_tables.py --work-dir work/ --out work/diff/table_candidates.json
-
-# 이미지 해시 비교만
-python3 scripts/diff_media.py --old-media work/old/media_inventory.json --new-media work/new/media_inventory.json --out work/diff/media_candidates.json
+```
+work/
+├── old/           blocks.json, section_index.json, page_map.json, ...
+├── new/           (same)
+├── matched_pairs.json
+├── diff/          change_candidates.json
+├── rows/          change_rows.json
+├── output/        Comparison_Table_of_Change_*.docx
+└── validation/    validation_report.json, validation_report.md
 ```
 
 ---
 
 ## 설계 원칙
 
-1. **XML 직접 순회** — python-docx 상위 API가 아닌 lxml으로 `w:body` 자식을 직접 순회하여 문단-표 혼합 순서를 보존
-2. **자동 번호 복원** — `numbering.xml`의 abstractNum 패턴을 파싱하여 Word 표시 번호와 동일하게 재현. 빈 heading은 번호 카운트에서 제외. `numId=0`(전문)과 `numId≠0`(본문) 구분
-3. **실제 페이지 번호** — DOCX→PDF 변환(Microsoft Word) 후 PyMuPDF로 heading 위치 → 페이지 번호 매핑
-4. **로컬 diff + Claude 정리** — 변경 감지는 로컬 Python(재현 가능, 감사 가능), Claude는 사람이 읽기 좋은 형태로 정리만
-5. **셀 단위 표 비교** — vMerge/gridSpan 병합 셀을 정규 그리드로 풀어서 좌표 단위 비교
-6. **적응형 분할** — H1-H3 기본, 30블록 초과 시 H4/H5 추가 분할
+1. **XML 직접 순회** — python-docx API 대신 lxml으로 w:body 순회 (혼합 콘텐츠 순서 보존)
+2. **로컬 diff + Claude 정리** — 변경 감지는 Python, Claude는 행 정리만 담당
+3. **자동 번호 복원** — numbering.xml 파싱으로 Word 표시 번호 재현
+4. **테이블 단위 집계** — 셀 단위 diff를 테이블 단위로 집계하여 노이즈 감소
+5. **4-pass 매칭** — 섹션 번호 → 페이지 겹침 → 내용 유사도 → 미매칭 순으로 검증
 
 ---
 
-## 파일 구조
+## 라이선스
 
-```
-Trackchange/
-├── scripts/
-│   ├── extract_blocks.py    # DOCX → blocks.json (XML 순회 + 자동번호 복원)
-│   ├── extract_pages.py     # DOCX→PDF→페이지 번호 추출 (Word 필요)
-│   ├── split_sections.py    # blocks → section_index.json
-│   ├── match_sections.py    # old↔new 섹션 매칭
-│   ├── run_split.py         # Phase 1 오케스트레이터 (페이지 추출 포함)
-│   ├── schema.py            # 변경 후보 스키마
-│   ├── diff_text.py         # 텍스트 diff (diff-match-patch)
-│   ├── diff_tables.py       # 표 셀 단위 diff
-│   ├── diff_media.py        # 이미지 SHA-256 비교
-│   ├── diff_headers.py      # Header/Footer diff
-│   ├── run_diff.py          # Phase 2 오케스트레이터 (페이지 번호 주입)
-│   ├── detect_language.py   # 한/영 자동 감지
-│   ├── generate_rows.py     # Claude CLI 병렬 호출
-│   ├── run_rows.py          # Phase 3 오케스트레이터
-│   ├── export_docx.py       # 변경대비표 DOCX 생성
-│   └── run_export.py        # Phase 4 오케스트레이터
-├── prompts/
-│   ├── change_row_system.txt    # Claude system prompt
-│   └── change_row_schema.json   # 5열 JSON Schema
-├── work/                    # 실행 시 생성되는 중간 산출물
-│   ├── old/                 # V1 blocks, sections, media, page_map
-│   ├── new/                 # V2 blocks, sections, media, page_map
-│   ├── diff/                # change_candidates.json
-│   ├── rows/                # change_rows.json
-│   └── output/              # 최종 DOCX
-└── requirements.txt
-```
+MIT
