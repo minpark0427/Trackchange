@@ -14,3 +14,4 @@ build/
 !prompts/*.json
 site/
 docs/
+.playwright-mcp/
