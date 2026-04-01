@@ -1,7 +1,7 @@
 """
 export_docx.py — Generate comparison table DOCX matching reference format.
 
-Reference format (SAMPLE_PROTOCOL):
+Reference format:
 - Landscape A4
 - 5 columns: Page | Item | Previous Version | Current Version | Note
 - Column widths (dxa): 639, 1835, 5296, 5271, 2127

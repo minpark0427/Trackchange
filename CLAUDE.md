@@ -49,7 +49,7 @@ python3 scripts/run_validate.py \
 4. **참고 양식 준수** — SAMPLE_PROTOCOL 변경대비표 5열 양식(Page|Item|Previous|Current|Note) 매칭
 
 ## 참고 파일
-- `SAMPLE_PROTOCOL001_...docx` — 변경대비표 참고 양식 (5열 포맷, 페이지 번호 포함)
+- `SAMPLE_PROTOCOL-101_...docx` — 변경대비표 참고 양식 (5열 포맷, 페이지 번호 포함)
 - `SPONSOR_PROTOCOL001_..._V1.docx` / `V2.docx` — 테스트용 프로토콜 문서
 
 ## 중간 산출물 (work/)

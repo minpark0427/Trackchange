@@ -22,7 +22,7 @@ def _extract_metadata(headers_footers: dict) -> dict:
     for part_name, entry in headers_footers.items():
         text = entry.get("text", "")
 
-        # Protocol number: "Protocol No: SPONSOR_PROTOCOL001" or "Protocol No: DW_COMPOUND_X 1 01"
+        # Protocol number: "Protocol No: XXXXX" (may contain spaces in DOCX header)
         m = re.search(r"Protocol\s+No[.:]\s*([A-Z0-9_\s]+?)(?:\s+Version|\s*$)", text, re.IGNORECASE)
         if m and not meta["protocol_no"]:
             raw = m.group(1).strip()

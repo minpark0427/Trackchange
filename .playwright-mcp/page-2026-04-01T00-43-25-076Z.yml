@@ -1,0 +1,1066 @@
+- generic [active] [ref=e1]:
+  - link "콘텐츠로 이동" [ref=e2] [cursor=pointer]:
+    - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_1
+  - banner [ref=e3]:
+    - navigation "상단/헤더" [ref=e4]:
+      - img [ref=e6] [cursor=pointer]
+      - generic [ref=e9]:
+        - generic [ref=e11]: 변경대비표 자동 생성기
+        - generic:
+          - generic: 변경대비표 자동화 시스템 설계 문서
+      - generic [ref=e12]:
+        - radio "다크 모드"
+        - generic "다크 모드" [ref=e13] [cursor=pointer]:
+          - img [ref=e14]
+        - radio "라이트 모드"
+      - dialog [ref=e16]:
+        - search [ref=e17]:
+          - generic [ref=e18]:
+            - textbox "검색" [ref=e19]
+            - generic:
+              - img
+            - navigation "검색":
+              - button "지우기":
+                - img
+          - generic [ref=e21]: 검색 초기화
+  - generic [ref=e22]:
+    - main [ref=e23]:
+      - generic [ref=e24]:
+        - navigation "네비게이션" [ref=e27]:
+          - generic [ref=e28] [cursor=pointer]:
+            - link "변경대비표 자동 생성기" [ref=e29]:
+              - /url: http://127.0.0.1:8000/
+              - img [ref=e30]
+            - text: 변경대비표 자동 생성기
+          - list [ref=e32]:
+            - listitem [ref=e33]:
+              - link "Home" [ref=e34] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/
+                - generic [ref=e35]: Home
+            - listitem [ref=e36]:
+              - generic [ref=e38]: 시작하기
+              - navigation "시작하기" [ref=e40]:
+                - generic [ref=e41] [cursor=pointer]: 시작하기
+                - list [ref=e43]:
+                  - listitem [ref=e44]:
+                    - link "빠른 참조" [ref=e45] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/CLAUDE/
+                      - generic [ref=e46]: 빠른 참조
+                  - listitem [ref=e47]:
+                    - link "파이프라인 사용 가이드" [ref=e48] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%AC%B8%EC%84%9C%20%EB%B6%84%ED%95%A0%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EC%82%AC%EC%9A%A9%20%EA%B0%80%EC%9D%B4%EB%93%9C/
+                      - generic [ref=e49]: 파이프라인 사용 가이드
+            - listitem [ref=e50]:
+              - generic [ref=e52]: 아키텍처
+              - navigation "아키텍처" [ref=e54]:
+                - generic [ref=e55] [cursor=pointer]: 아키텍처
+                - list [ref=e57]:
+                  - listitem [ref=e58]:
+                    - link "시스템 설계 문서" [ref=e59] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/
+                      - generic [ref=e60]: 시스템 설계 문서
+                  - listitem [ref=e61]:
+                    - link "단계별 문서 분할" [ref=e62] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%AC%B8%EC%84%9C%20%EB%82%98%EB%88%84%EA%B8%B0%20%EB%8B%A8%EA%B3%84%EB%B3%84/
+                      - generic [ref=e63]: 단계별 문서 분할
+            - listitem [ref=e64]:
+              - generic [ref=e66]: 리서치
+              - navigation "리서치" [ref=e68]:
+                - generic [ref=e69] [cursor=pointer]: 리서치
+                - list [ref=e71]:
+                  - listitem [ref=e72]:
+                    - link "DOCX 비교 스킬 조사" [ref=e73] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20skill/
+                      - generic [ref=e74]: DOCX 비교 스킬 조사
+                  - listitem [ref=e75]:
+                    - link "문서 업로드 조사" [ref=e76] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/2026-03-31_%EB%AC%B8%EC%84%9C%20%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%A1%B0%EC%82%AC/
+                      - generic [ref=e77]: 문서 업로드 조사
+            - listitem [ref=e78]:
+              - generic [ref=e80]: 개발자
+              - navigation "개발자" [ref=e82]:
+                - generic [ref=e83] [cursor=pointer]: 개발자
+                - list [ref=e85]:
+                  - listitem [ref=e86]:
+                    - link "Agent 가이드" [ref=e87] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/agent/
+                      - generic [ref=e88]: Agent 가이드
+        - navigation "목차" [ref=e92]:
+          - generic [ref=e93]: 목차
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "1. 이 시스템은 왜 만드는가" [ref=e96] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#1
+                - generic [ref=e97]: 1. 이 시스템은 왜 만드는가
+              - navigation "1. 이 시스템은 왜 만드는가" [ref=e98]:
+                - list [ref=e99]:
+                  - listitem [ref=e100]:
+                    - link "현재 문제" [ref=e101] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_2
+                      - generic [ref=e102]: 현재 문제
+                  - listitem [ref=e103]:
+                    - link "목표" [ref=e104] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_3
+                      - generic [ref=e105]: 목표
+            - listitem [ref=e106]:
+              - link "2. 전체 파이프라인 구조" [ref=e107] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#2
+                - generic [ref=e108]: 2. 전체 파이프라인 구조
+            - listitem [ref=e109]:
+              - link "3. 각 Phase 상세 설명" [ref=e110] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#3-phase
+                - generic [ref=e111]: 3. 각 Phase 상세 설명
+              - navigation "3. 각 Phase 상세 설명" [ref=e112]:
+                - list [ref=e113]:
+                  - listitem [ref=e114]:
+                    - 'link "Phase 1: 섹션 분할 (순수 Python)" [ref=e115] [cursor=pointer]':
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-1-python
+                      - generic [ref=e116]: "Phase 1: 섹션 분할 (순수 Python)"
+                    - 'navigation "Phase 1: 섹션 분할 (순수 Python)" [ref=e117]':
+                      - list [ref=e118]:
+                        - listitem [ref=e119]:
+                          - link "왜 먼저 나눠야 하나" [ref=e120] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_4
+                            - generic [ref=e121]: 왜 먼저 나눠야 하나
+                        - listitem [ref=e122]:
+                          - link "어떻게 나누나" [ref=e123] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_5
+                            - generic [ref=e124]: 어떻게 나누나
+                        - listitem [ref=e125]:
+                          - link "산출물" [ref=e126] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_6
+                            - generic [ref=e127]: 산출물
+                        - listitem [ref=e128]:
+                          - link "예시 문서 분석 결과" [ref=e129] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_7
+                            - generic [ref=e130]: 예시 문서 분석 결과
+                  - listitem [ref=e131]:
+                    - 'link "Phase 2: 변경 후보 생성 (순수 Python)" [ref=e132] [cursor=pointer]':
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-2-python
+                      - generic [ref=e133]: "Phase 2: 변경 후보 생성 (순수 Python)"
+                    - 'navigation "Phase 2: 변경 후보 생성 (순수 Python)" [ref=e134]':
+                      - list [ref=e135]:
+                        - listitem [ref=e136]:
+                          - link "비교 대상 4가지" [ref=e137] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#4
+                            - generic [ref=e138]: 비교 대상 4가지
+                        - listitem [ref=e139]:
+                          - link "변경 유형 분류" [ref=e140] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_8
+                            - generic [ref=e141]: 변경 유형 분류
+                        - listitem [ref=e142]:
+                          - link "텍스트 정규화" [ref=e143] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_9
+                            - generic [ref=e144]: 텍스트 정규화
+                        - listitem [ref=e145]:
+                          - link "산출물" [ref=e146] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_10
+                            - generic [ref=e147]: 산출물
+                  - listitem [ref=e148]:
+                    - 'link "Phase 3: Claude로 행 생성 (Claude Code CLI)" [ref=e149] [cursor=pointer]':
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-3-claude-claude-code-cli
+                      - generic [ref=e150]: "Phase 3: Claude로 행 생성 (Claude Code CLI)"
+                    - 'navigation "Phase 3: Claude로 행 생성 (Claude Code CLI)" [ref=e151]':
+                      - list [ref=e152]:
+                        - listitem [ref=e153]:
+                          - link "Claude의 역할" [ref=e154] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#claude
+                            - generic [ref=e155]: Claude의 역할
+                        - listitem [ref=e156]:
+                          - link "기술 구현" [ref=e157] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_11
+                            - generic [ref=e158]: 기술 구현
+                        - listitem [ref=e159]:
+                          - link "언어 감지" [ref=e160] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_12
+                            - generic [ref=e161]: 언어 감지
+                        - listitem [ref=e162]:
+                          - link "Note 열 (변경 사유)" [ref=e163] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#note
+                            - generic [ref=e164]: Note 열 (변경 사유)
+                  - listitem [ref=e165]:
+                    - 'link "Phase 4: DOCX 출력 (순수 Python)" [ref=e166] [cursor=pointer]':
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-4-docx-python
+                      - generic [ref=e167]: "Phase 4: DOCX 출력 (순수 Python)"
+                    - 'navigation "Phase 4: DOCX 출력 (순수 Python)" [ref=e168]':
+                      - list [ref=e169]:
+                        - listitem [ref=e170]:
+                          - link "참고 양식 분석 결과" [ref=e171] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_13
+                            - generic [ref=e172]: 참고 양식 분석 결과
+                        - listitem [ref=e173]:
+                          - link "파일명 자동 생성" [ref=e174] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_14
+                            - generic [ref=e175]: 파일명 자동 생성
+                  - listitem [ref=e176]:
+                    - 'link "Phase 5: Skill 패키징 + E2E 테스트" [ref=e177] [cursor=pointer]':
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-5-skill-e2e
+                      - generic [ref=e178]: "Phase 5: Skill 패키징 + E2E 테스트"
+                    - 'navigation "Phase 5: Skill 패키징 + E2E 테스트" [ref=e179]':
+                      - list [ref=e180]:
+                        - listitem [ref=e181]:
+                          - link "최종 사용 시나리오" [ref=e182] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_15
+                            - generic [ref=e183]: 최종 사용 시나리오
+                        - listitem [ref=e184]:
+                          - link "Skill 구조" [ref=e185] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#skill
+                            - generic [ref=e186]: Skill 구조
+                        - listitem [ref=e187]:
+                          - link "트리거 키워드" [ref=e188] [cursor=pointer]:
+                            - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_16
+                            - generic [ref=e189]: 트리거 키워드
+            - listitem [ref=e190]:
+              - link "4. 기술 스택" [ref=e191] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#4_1
+                - generic [ref=e192]: 4. 기술 스택
+            - listitem [ref=e193]:
+              - link "5. 주요 설계 결정과 이유" [ref=e194] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#5
+                - generic [ref=e195]: 5. 주요 설계 결정과 이유
+              - navigation "5. 주요 설계 결정과 이유" [ref=e196]:
+                - list [ref=e197]:
+                  - listitem [ref=e198]:
+                    - link "\"Claude가 직접 diff하지 않는 이유\"" [ref=e199] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#claude-diff
+                      - generic [ref=e200]: "\"Claude가 직접 diff하지 않는 이유\""
+                  - listitem [ref=e201]:
+                    - link "\"왜 XML 레벨로 파싱하는가\"" [ref=e202] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#xml
+                      - generic [ref=e203]: "\"왜 XML 레벨로 파싱하는가\""
+                  - listitem [ref=e204]:
+                    - link "\"Heading 텍스트에 번호가 없는 문제\"" [ref=e205] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#heading
+                      - generic [ref=e206]: "\"Heading 텍스트에 번호가 없는 문제\""
+                  - listitem [ref=e207]:
+                    - link "\"왜 diff-match-patch인가\"" [ref=e208] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#diff-match-patch
+                      - generic [ref=e209]: "\"왜 diff-match-patch인가\""
+            - listitem [ref=e210]:
+              - link "6. 변경대비표 양식 참고" [ref=e211] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#6
+                - generic [ref=e212]: 6. 변경대비표 양식 참고
+            - listitem [ref=e213]:
+              - link "7. 프로젝트 현황" [ref=e214] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#7
+                - generic [ref=e215]: 7. 프로젝트 현황
+              - navigation "7. 프로젝트 현황" [ref=e216]:
+                - list [ref=e217]:
+                  - listitem [ref=e218]:
+                    - link "플랜 구조" [ref=e219] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_17
+                      - generic [ref=e220]: 플랜 구조
+                  - listitem [ref=e221]:
+                    - link "스크립트 목록 (Phase 1~4 합계 14개)" [ref=e222] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-14-14
+                      - generic [ref=e223]: 스크립트 목록 (Phase 1~4 합계 14개)
+                  - listitem [ref=e224]:
+                    - link "검증 과정에서 발견된 주요 GAP (해결 완료)" [ref=e225] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#gap
+                      - generic [ref=e226]: 검증 과정에서 발견된 주요 GAP (해결 완료)
+                  - listitem [ref=e227]:
+                    - link "예시 문서" [ref=e228] [cursor=pointer]:
+                      - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_18
+                      - generic [ref=e229]: 예시 문서
+            - listitem [ref=e230]:
+              - link "8. 실행 순서" [ref=e231] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#8
+                - generic [ref=e232]: 8. 실행 순서
+            - listitem [ref=e233]:
+              - link "9. 향후 확장 가능성" [ref=e234] [cursor=pointer]:
+                - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#9
+                - generic [ref=e235]: 9. 향후 확장 가능성
+        - article [ref=e237]:
+          - heading "변경대비표 자동화 시스템 설계 문서 ¶" [level=1] [ref=e238]:
+            - text: 변경대비표 자동화 시스템 설계 문서
+            - link "¶" [ref=e239] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_1
+          - blockquote [ref=e240]:
+            - paragraph [ref=e241]:
+              - text: "[!summary]+ 한 줄 요약 임상시험 프로토콜 DOCX 두 버전을 넣으면,"
+              - strong [ref=e242]: 변경대비표(Comparison Table of Change) DOCX
+              - text: 가 자동으로 나오는 시스템.
+          - separator [ref=e243]
+          - heading "1. 이 시스템은 왜 만드는가 ¶" [level=2] [ref=e244]:
+            - text: 1. 이 시스템은 왜 만드는가
+            - link "¶" [ref=e245] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#1
+          - heading "현재 문제 ¶" [level=3] [ref=e246]:
+            - text: 현재 문제
+            - link "¶" [ref=e247] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_2
+          - paragraph [ref=e248]:
+            - text: 임상시험 프로토콜이 버전 업데이트될 때마다
+            - strong [ref=e249]: 변경대비표
+            - text: 를 수작업으로 만들고 있습니다.
+          - list [ref=e250]:
+            - listitem [ref=e251]: 100페이지 문서를 한 줄씩 대조
+            - listitem [ref=e252]: 텍스트뿐 아니라 표, 이미지, 머리글/바닥글까지 비교
+            - listitem [ref=e253]: 변경 하나를 놓치면 규제 이슈로 직결
+            - listitem [ref=e254]: 매번 수 시간~수일 소요
+          - heading "목표 ¶" [level=3] [ref=e255]:
+            - text: 목표
+            - link "¶" [ref=e256] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_3
+          - generic [ref=e258]:
+            - navigation [ref=e259]:
+              - button "클립보드로 복사" [ref=e260] [cursor=pointer]
+            - code [ref=e261]: V1.docx + V2.docx → [자동화 시스템] → 변경대비표.docx
+          - paragraph [ref=e262]:
+            - text: "\""
+            - strong [ref=e263]: 변경대비표 만들어줘
+            - text: "\" 한마디로 끝나는 Claude Code Skill을 만드는 것이 최종 목표입니다."
+          - separator [ref=e264]
+          - heading "2. 전체 파이프라인 구조 ¶" [level=2] [ref=e265]:
+            - text: 2. 전체 파이프라인 구조
+            - link "¶" [ref=e266] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#2
+          - paragraph [ref=e267]:
+            - text: 시스템은
+            - strong [ref=e268]: 5단계(Phase)
+            - text: 로 나뉩니다. 각 단계는 독립적으로 실행·검증 가능합니다.
+          - generic [ref=e270]:
+            - navigation [ref=e271]:
+              - button "클립보드로 복사" [ref=e272] [cursor=pointer]
+            - code [ref=e273]: "┌─────────────────────────────────────────────────────────────────┐ │ 전체 파이프라인 │ │ │ │ V1.docx ──┐ │ │ │ │ │ V2.docx ──┤ │ │ │ │ │ ┌──────────▼──────────┐ ┌────────────────────┐ │ │ │ Phase 1 │ │ Phase 2 │ │ │ │ 섹션 분할 │──▶│ 변경 후보 생성 │ │ │ │ (Python) │ │ (Python) │ │ │ │ │ │ │ │ │ │ • 블록 추출 │ │ • 텍스트 diff │ │ │ │ • Heading 기반 분할 │ │ • 표 셀 diff │ │ │ │ • old↔new 매칭 │ │ • 이미지 해시 diff │ │ │ │ • 번호 복원 │ │ • Header/Footer │ │ │ └─────────────────────┘ └────────┬───────────┘ │ │ │ │ │ ┌───────────────────────────────────▼──────────┐ │ │ │ Phase 3 │ │ │ │ Claude로 행 생성 │ │ │ │ (Claude Code CLI + 병렬 3개) │ │ │ │ │ │ │ │ 변경 후보 → \"사람 읽기 좋은\" 변경대비표 행 │ │ │ │ 5열: Page | Item | Previous | Current | Note │ │ │ └───────────────────────────────────┬──────────┘ │ │ │ │ │ ┌───────────────────────────────────▼──────────┐ │ │ │ Phase 4 │ │ │ │ DOCX 출력 │ │ │ │ (Python + python-docx) │ │ │ │ │ │ │ │ 참고 양식과 동일한 스타일의 변경대비표 DOCX │ │ │ │ 파일명 자동 생성 │ │ │ └───────────────────────────────────┬──────────┘ │ │ │ │ │ ┌───────────────────────────────────▼──────────┐ │ │ │ Phase 5 │ │ │ │ Skill 패키징 │ │ │ │ │ │ │ │ \"변경대비표 만들어줘\" → 전체 실행 │ │ │ └──────────────────────────────────────────────┘ │ │ │ │ Output: {프로토콜번호}_Comparison Table of Change_{버전}.docx │ └─────────────────────────────────────────────────────────────────┘"
+          - separator [ref=e274]
+          - heading "3. 각 Phase 상세 설명 ¶" [level=2] [ref=e275]:
+            - text: 3. 각 Phase 상세 설명
+            - link "¶" [ref=e276] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#3-phase
+          - 'heading "Phase 1: 섹션 분할 (순수 Python) ¶" [level=3] [ref=e277]':
+            - text: "Phase 1: 섹션 분할 (순수 Python)"
+            - link "¶" [ref=e278] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-1-python
+          - blockquote [ref=e279]:
+            - paragraph [ref=e280]:
+              - strong [ref=e281]: 핵심 질문
+              - text: ": \"100페이지 문서를 어떻게 비교 가능한 단위로 나누는가?\""
+          - heading "왜 먼저 나눠야 하나 ¶" [level=4] [ref=e282]:
+            - text: 왜 먼저 나눠야 하나
+            - link "¶" [ref=e283] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_4
+          - list [ref=e284]:
+            - listitem [ref=e285]: 100페이지를 한 번에 비교하면 작은 변경이 묻힘
+            - listitem [ref=e286]: 표, 그림 변경을 놓치기 쉬움
+            - listitem [ref=e287]: 모델에 너무 많은 내용을 보내면 비용·정확도 모두 나빠짐
+          - heading "어떻게 나누나 ¶" [level=4] [ref=e288]:
+            - text: 어떻게 나누나
+            - link "¶" [ref=e289] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_5
+          - paragraph [ref=e290]:
+            - strong [ref=e291]: Adaptive Heading 분할
+            - text: ": 1. DOCX의 XML 레벨에서"
+            - code [ref=e292]: w:body
+            - text: 직계 자식을 순회 (python-docx API가 아닌 lxml 직접 사용) 2. Heading 1/2/3 기준으로 1차 분할 3. 30 blocks 초과 섹션만 Heading 4/5로 추가 분할 4. Table of Contents, 서명 페이지, 빈 Heading은 제외
+          - blockquote [ref=e293]:
+            - paragraph [ref=e294]:
+              - text: "[!important] 핵심 발견: 자동 번호 복원 이 문서의 Heading 텍스트에는 번호가 없습니다 (\"Introduction\", \"Study Plan\" 등). 하지만 Word는"
+              - code [ref=e295]: numbering.xml
+              - text: 의 정의에 따라 "1. Introduction", "3. Study Plan"으로 렌더링합니다. 따라서
+              - strong [ref=e296]: numbering.xml을 파싱하여 번호를 복원
+              - text: 해야 변경대비표의 Item 열에 정확한 섹션 경로가 들어갑니다.
+          - heading "산출물 ¶" [level=4] [ref=e297]:
+            - text: 산출물
+            - link "¶" [ref=e298] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_6
+          - generic [ref=e300]:
+            - navigation [ref=e301]:
+              - button "클립보드로 복사" [ref=e302] [cursor=pointer]
+            - code [ref=e303]: work/ ├── old/ │ ├── blocks.json ← 문단+표 순서 보존된 블록 스트림 │ ├── section_index.json ← 섹션 목록 (경로, 범위, 제외 여부) │ ├── media_inventory.json ← 이미지 SHA-256 해시 │ └── headers_footers.json ← 머리글/바닥글 텍스트 ├── new/ │ └── (동일 구조) └── matched_pairs.json ← old↔new 섹션 짝
+          - heading "예시 문서 분석 결과 ¶" [level=4] [ref=e304]:
+            - text: 예시 문서 분석 결과
+            - link "¶" [ref=e305] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_7
+          - table [ref=e308]:
+            - rowgroup [ref=e309]:
+              - row "항목 V1 V2" [ref=e310]:
+                - columnheader "항목" [ref=e311]
+                - columnheader "V1" [ref=e312]
+                - columnheader "V2" [ref=e313]
+            - rowgroup [ref=e314]:
+              - row "총 문단 1,007 1,036" [ref=e315]:
+                - cell "총 문단" [ref=e316]
+                - cell "1,007" [ref=e317]
+                - cell "1,036" [ref=e318]
+              - row "총 표 20 20" [ref=e319]:
+                - cell "총 표" [ref=e320]
+                - cell "20" [ref=e321]
+                - cell "20" [ref=e322]
+              - row "이미지 9 9 (3개 변경)" [ref=e323]:
+                - cell "이미지" [ref=e324]
+                - cell "9" [ref=e325]
+                - cell "9 (3개 변경)" [ref=e326]
+              - row "Heading 수 149 149" [ref=e327]:
+                - cell "Heading 수" [ref=e328]
+                - cell "149" [ref=e329]
+                - cell "149" [ref=e330]
+              - row "Heading 매칭률 — 99%+ (131/132 일치)" [ref=e331]:
+                - cell "Heading 매칭률" [ref=e332]
+                - cell "—" [ref=e333]
+                - cell "99%+ (131/132 일치)" [ref=e334]:
+                  - strong [ref=e335]: 99%+
+                  - text: (131/132 일치)
+          - separator [ref=e336]
+          - 'heading "Phase 2: 변경 후보 생성 (순수 Python) ¶" [level=3] [ref=e337]':
+            - text: "Phase 2: 변경 후보 생성 (순수 Python)"
+            - link "¶" [ref=e338] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-2-python
+          - blockquote [ref=e339]:
+            - paragraph [ref=e340]:
+              - strong [ref=e341]: 핵심 질문
+              - text: ": \"매칭된 섹션 짝에서 무엇이 바뀌었는가?\""
+          - heading "비교 대상 4가지 ¶" [level=4] [ref=e342]:
+            - text: 비교 대상 4가지
+            - link "¶" [ref=e343] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#4
+          - table [ref=e346]:
+            - rowgroup [ref=e347]:
+              - row "대상 도구 비교 방식" [ref=e348]:
+                - columnheader "대상" [ref=e349]
+                - columnheader "도구" [ref=e350]
+                - columnheader "비교 방식" [ref=e351]
+            - rowgroup [ref=e352]:
+              - row "텍스트 diff-match-patch (Google) 문단 단위 정렬 → character-level diff" [ref=e353]:
+                - cell "텍스트" [ref=e354]:
+                  - strong [ref=e355]: 텍스트
+                - cell "diff-match-patch (Google)" [ref=e356]
+                - cell "문단 단위 정렬 → character-level diff" [ref=e357]
+              - row "표 커스텀 로직 셀 단위 비교 (행/열 좌표, 병합 셀 정규화)" [ref=e358]:
+                - cell "표" [ref=e359]:
+                  - strong [ref=e360]: 표
+                - cell "커스텀 로직" [ref=e361]
+                - cell "셀 단위 비교 (행/열 좌표, 병합 셀 정규화)" [ref=e362]
+              - row "이미지 SHA-256 해시 바이너리 해시 비교 (같음/다름)" [ref=e363]:
+                - cell "이미지" [ref=e364]:
+                  - strong [ref=e365]: 이미지
+                - cell "SHA-256 해시" [ref=e366]
+                - cell "바이너리 해시 비교 (같음/다름)" [ref=e367]
+              - row "머리글/바닥글 diff-match-patch 텍스트 비교 (버전, 날짜 등)" [ref=e368]:
+                - cell "머리글/바닥글" [ref=e369]:
+                  - strong [ref=e370]: 머리글/바닥글
+                - cell "diff-match-patch" [ref=e371]
+                - cell "텍스트 비교 (버전, 날짜 등)" [ref=e372]
+          - heading "변경 유형 분류 ¶" [level=4] [ref=e373]:
+            - text: 변경 유형 분류
+            - link "¶" [ref=e374] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_8
+          - list [ref=e375]:
+            - listitem [ref=e376]:
+              - strong [ref=e377]: add
+              - text: ": 새로 추가된 내용"
+            - listitem [ref=e378]:
+              - strong [ref=e379]: delete
+              - text: ": 삭제된 내용"
+            - listitem [ref=e380]:
+              - strong [ref=e381]: modify
+              - text: ": 수정된 내용 (character-level diff 포함)"
+            - listitem [ref=e382]:
+              - strong [ref=e383]: move
+              - text: ": 같은 섹션 내에서 위치가 바뀐 문단"
+          - heading "텍스트 정규화 ¶" [level=4] [ref=e384]:
+            - text: 텍스트 정규화
+            - link "¶" [ref=e385] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_9
+          - paragraph [ref=e386]: "diff 전에 양쪽에 동일한 정규화 적용: - 연속 공백/개행 → 단일 공백 - 불필요한 제어문자 제거 - 문단 끝 공백 제거"
+          - heading "산출물 ¶" [level=4] [ref=e387]:
+            - text: 산출물
+            - link "¶" [ref=e388] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_10
+          - generic [ref=e390]:
+            - navigation [ref=e391]:
+              - button "클립보드로 복사" [ref=e392] [cursor=pointer]
+            - code [ref=e393]: "// work/diff/change_candidates.json (예시) [ { \"section_path\": \"5. Treatments > 5.1. Identity of IP\", \"object_type\": \"text\", \"change_type\": \"modify\", \"location_hint\": \"paragraph_idx=17\", \"before\": \"Version 1.0\", \"after\": \"Version 2.0\", \"evidence\": \"@@ -1,11 +1,11 @@\\n Version \\n-1.0\\n+2.0\\n\", \"confidence\": 1.0 } ]"
+          - separator [ref=e394]
+          - 'heading "Phase 3: Claude로 행 생성 (Claude Code CLI) ¶" [level=3] [ref=e395]':
+            - text: "Phase 3: Claude로 행 생성 (Claude Code CLI)"
+            - link "¶" [ref=e396] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-3-claude-claude-code-cli
+          - blockquote [ref=e397]:
+            - paragraph [ref=e398]:
+              - strong [ref=e399]: 핵심 질문
+              - text: ": \"기계가 찾은 변경을 사람이 읽기 좋게 정리하려면?\""
+          - paragraph [ref=e400]:
+            - text: 이 단계에서
+            - strong [ref=e401]: 처음으로 AI(Claude)가 등장
+            - text: 합니다.
+          - heading "Claude의 역할 ¶" [level=4] [ref=e402]:
+            - text: Claude의 역할
+            - link "¶" [ref=e403] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#claude
+          - paragraph [ref=e404]:
+            - text: Claude는
+            - strong [ref=e405]: 변경을 찾는 것이 아니라, 이미 찾은 변경을 정리
+            - text: 합니다.
+          - generic [ref=e407]:
+            - navigation [ref=e408]:
+              - button "클립보드로 복사" [ref=e409] [cursor=pointer]
+            - code [ref=e410]: "Phase 2가 찾은 것 Claude가 정리한 것 ───────────────── ────────────────── before: \"Version 1.0\" → Previous Version: \"Version 1.0\" after: \"Version 2.0\" → Current Version: \"Version 2.0\" change_type: \"modify\" → Note: \"프로토콜 버전 업데이트\""
+          - heading "기술 구현 ¶" [level=4] [ref=e411]:
+            - text: 기술 구현
+            - link "¶" [ref=e412] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_11
+          - list [ref=e413]:
+            - listitem [ref=e414]:
+              - strong [ref=e415]: Claude Code CLI
+              - text: ":"
+              - code [ref=e416]: claude -p --output-format json --json-schema
+            - listitem [ref=e417]:
+              - strong [ref=e418]: 병렬 3개
+              - text: ":"
+              - code [ref=e419]: ThreadPoolExecutor(max_workers=3)
+              - text: 으로 섹션별 동시 처리
+            - listitem [ref=e420]:
+              - strong [ref=e421]: 재시도 2회
+              - text: ": JSON Schema 불일치 시 최대 2회 재시도"
+            - listitem [ref=e422]:
+              - strong [ref=e423]: JSON Schema 강제
+              - text: ": 5열 양식(page, item, previous_version, current_version, note) 구조 보장"
+            - listitem [ref=e424]:
+              - strong [ref=e425]: 응답 파싱
+              - text: ": CLI 응답의"
+              - code [ref=e426]: structured_output
+              - text: 필드에서 결과 추출 (
+              - code [ref=e427]: result
+              - text: 아님)
+          - heading "언어 감지 ¶" [level=4] [ref=e428]:
+            - text: 언어 감지
+            - link "¶" [ref=e429] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_12
+          - list [ref=e430]:
+            - listitem [ref=e431]:
+              - text: 텍스트에 한글이 1글자라도 있으면 →
+              - strong [ref=e432]: 한국어
+              - text: 변경대비표
+            - listitem [ref=e433]:
+              - text: 한글이 전혀 없으면 →
+              - strong [ref=e434]: 영어
+              - text: 변경대비표
+            - listitem [ref=e435]: (한국 문서에는 영어가 혼용되지만, 영어 문서에는 한글이 없음)
+          - heading "Note 열 (변경 사유) ¶" [level=4] [ref=e436]:
+            - text: Note 열 (변경 사유)
+            - link "¶" [ref=e437] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#note
+          - list [ref=e438]:
+            - listitem [ref=e439]:
+              - text: 문서에 변경 사유가 명시되어 있지 않으므로
+              - strong [ref=e440]: Claude가 문맥 기반으로 추정
+            - listitem [ref=e441]: "확실하지 않은 사유는 \"추정: ...\" 형태로 표기"
+          - separator [ref=e442]
+          - 'heading "Phase 4: DOCX 출력 (순수 Python) ¶" [level=3] [ref=e443]':
+            - text: "Phase 4: DOCX 출력 (순수 Python)"
+            - link "¶" [ref=e444] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-4-docx-python
+          - blockquote [ref=e445]:
+            - paragraph [ref=e446]:
+              - strong [ref=e447]: 핵심 질문
+              - text: ": \"참고 양식과 동일한 스타일의 Word 문서를 어떻게 만드는가?\""
+          - heading "참고 양식 분석 결과 ¶" [level=4] [ref=e448]:
+            - text: 참고 양식 분석 결과
+            - link "¶" [ref=e449] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_13
+          - table [ref=e452]:
+            - rowgroup [ref=e453]:
+              - row "속성 값" [ref=e454]:
+                - columnheader "속성" [ref=e455]
+                - columnheader "값" [ref=e456]
+            - rowgroup [ref=e457]:
+              - row "페이지 방향 가로(Landscape)" [ref=e458]:
+                - cell "페이지 방향" [ref=e459]
+                - cell "가로(Landscape)" [ref=e460]:
+                  - strong [ref=e461]: 가로(Landscape)
+              - row "표 스타일 \"표 구분선1\" — 단일 테두리(4pt)" [ref=e462]:
+                - cell "표 스타일" [ref=e463]
+                - cell "\"표 구분선1\" — 단일 테두리(4pt)" [ref=e464]
+              - row "헤더 행 Bold, 상단 single 12pt, 하단 double 4pt" [ref=e465]:
+                - cell "헤더 행" [ref=e466]
+                - cell "Bold, 상단 single 12pt, 하단 double 4pt" [ref=e467]
+              - row "배경색 없음" [ref=e468]:
+                - cell "배경색" [ref=e469]
+                - cell "없음" [ref=e470]
+              - row "데이터 행 Item 열만 Bold" [ref=e471]:
+                - cell "데이터 행" [ref=e472]
+                - cell "Item 열만 Bold" [ref=e473]
+          - paragraph [ref=e474]:
+            - strong [ref=e475]: 5열 구조
+            - text: ":"
+          - table [ref=e478]:
+            - rowgroup [ref=e479]:
+              - row "열 너비(dxa) 설명" [ref=e480]:
+                - columnheader "열" [ref=e481]
+                - columnheader "너비(dxa)" [ref=e482]
+                - columnheader "설명" [ref=e483]
+            - rowgroup [ref=e484]:
+              - row "Page 639 섹션 경로 또는 페이지" [ref=e485]:
+                - cell "Page" [ref=e486]
+                - cell "639" [ref=e487]
+                - cell "섹션 경로 또는 페이지" [ref=e488]
+              - row "Item 1,835 변경 항목 (섹션명 > 세부항목)" [ref=e489]:
+                - cell "Item" [ref=e490]
+                - cell "1,835" [ref=e491]
+                - cell "변경 항목 (섹션명 > 세부항목)" [ref=e492]
+              - row "Previous Version 5,296 변경 전 내용" [ref=e493]:
+                - cell "Previous Version" [ref=e494]
+                - cell "5,296" [ref=e495]
+                - cell "변경 전 내용" [ref=e496]
+              - row "Current Version 5,271 변경 후 내용" [ref=e497]:
+                - cell "Current Version" [ref=e498]
+                - cell "5,271" [ref=e499]
+                - cell "변경 후 내용" [ref=e500]
+              - row "Note 2,127 변경 사유/비고" [ref=e501]:
+                - cell "Note" [ref=e502]
+                - cell "2,127" [ref=e503]
+                - cell "변경 사유/비고" [ref=e504]
+          - heading "파일명 자동 생성 ¶" [level=4] [ref=e505]:
+            - text: 파일명 자동 생성
+            - link "¶" [ref=e506] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_14
+          - paragraph [ref=e507]: "참고 양식 파일명:"
+          - generic [ref=e509]:
+            - navigation [ref=e510]:
+              - button "클립보드로 복사" [ref=e511] [cursor=pointer]
+            - code [ref=e512]: SAMPLE_PROTOCOL001_Clinical Protocol_Comparison Table of Change_Ver1.0_to_Ver2.0_20Mar2024.docx
+          - paragraph
+          - paragraph [ref=e513]: "공식:"
+          - generic [ref=e515]:
+            - navigation [ref=e516]:
+              - button "클립보드로 복사" [ref=e517] [cursor=pointer]
+            - code [ref=e518]: "{프로토콜번호}_{문서유형}_Comparison Table of Change_{이전버전}_to_{현재버전}_{날짜}.docx"
+          - paragraph
+          - list [ref=e519]:
+            - listitem [ref=e520]: "프로토콜 번호: Header에서 자동 추출"
+            - listitem [ref=e521]: "버전: Header의 Version 정보에서 추출"
+            - listitem [ref=e522]: "날짜: 실행 시점 (DDMonYYYY 형식)"
+          - separator [ref=e523]
+          - 'heading "Phase 5: Skill 패키징 + E2E 테스트 ¶" [level=3] [ref=e524]':
+            - text: "Phase 5: Skill 패키징 + E2E 테스트"
+            - link "¶" [ref=e525] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-5-skill-e2e
+          - blockquote [ref=e526]:
+            - paragraph [ref=e527]:
+              - strong [ref=e528]: 핵심 질문
+              - text: ": \"이 모든 것을 한마디로 실행하려면?\""
+          - heading "최종 사용 시나리오 ¶" [level=4] [ref=e529]:
+            - text: 최종 사용 시나리오
+            - link "¶" [ref=e530] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_15
+          - generic [ref=e532]:
+            - navigation [ref=e533]:
+              - button "클립보드로 복사" [ref=e534] [cursor=pointer]
+            - code [ref=e535]: "사용자: \"변경대비표 만들어줘\" Claude: 이전 버전 DOCX 파일 경로를 알려주세요. 사용자: /path/to/V1.docx Claude: 새 버전 DOCX 파일 경로를 알려주세요. 사용자: /path/to/V2.docx Claude: 의존성을 설치하고 변경대비표를 생성합니다... [Phase 1: 섹션 분할 중...] ✓ [Phase 2: 변경 후보 생성 중...] ✓ [Phase 3: 변경대비표 행 정리 중...] ✓ [Phase 4: DOCX 출력 중...] ✓ 완료! 변경대비표가 생성되었습니다: → SPONSOR_PROTOCOL001_Clinical Trial Protocol_Comparison Table of Change_V1.0_to_V2_31Mar2026.docx"
+          - heading "Skill 구조 ¶" [level=4] [ref=e536]:
+            - text: Skill 구조
+            - link "¶" [ref=e537] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#skill
+          - generic [ref=e539]:
+            - navigation [ref=e540]:
+              - button "클립보드로 복사" [ref=e541] [cursor=pointer]
+            - code [ref=e542]: ~/.claude/skills/docx-comparison/ ├── SKILL.md ← Skill 정의 (트리거, 워크플로우) ├── scripts/ ← Phase 1~4 스크립트 전체 (14개) ├── prompts/ ← Claude 프롬프트/스키마 └── references/ ← 양식 분석, 파이프라인 개요
+          - heading "트리거 키워드 ¶" [level=4] [ref=e543]:
+            - text: 트리거 키워드
+            - link "¶" [ref=e544] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_16
+          - list [ref=e545]:
+            - listitem [ref=e546]: "\"변경대비표 만들어줘\""
+            - listitem [ref=e547]: "\"변경대비표\""
+            - listitem [ref=e548]: "\"comparison table\""
+            - listitem [ref=e549]: "\"문서 비교\""
+            - listitem [ref=e550]: "\"tracked changes\""
+            - listitem [ref=e551]: "\"compare documents\""
+            - listitem [ref=e552]: "\"문서 버전 비교\""
+          - separator [ref=e553]
+          - heading "4. 기술 스택 ¶" [level=2] [ref=e554]:
+            - text: 4. 기술 스택
+            - link "¶" [ref=e555] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#4_1
+          - table [ref=e558]:
+            - rowgroup [ref=e559]:
+              - row "도구 용도 설치" [ref=e560]:
+                - columnheader "도구" [ref=e561]
+                - columnheader "용도" [ref=e562]
+                - columnheader "설치" [ref=e563]
+            - rowgroup [ref=e564]:
+              - row "Python 3.9+ 전체 파이프라인 시스템 기본" [ref=e565]:
+                - cell "Python 3.9+" [ref=e566]:
+                  - strong [ref=e567]: Python 3.9+
+                - cell "전체 파이프라인" [ref=e568]
+                - cell "시스템 기본" [ref=e569]
+              - row "python-docx DOCX 읽기/쓰기 pip install python-docx" [ref=e570]:
+                - cell "python-docx" [ref=e571]:
+                  - strong [ref=e572]: python-docx
+                - cell "DOCX 읽기/쓰기" [ref=e573]
+                - cell "pip install python-docx" [ref=e574]:
+                  - code [ref=e575]: pip install python-docx
+              - row "lxml XML 파싱 (OOXML) pip install lxml" [ref=e576]:
+                - cell "lxml" [ref=e577]:
+                  - strong [ref=e578]: lxml
+                - cell "XML 파싱 (OOXML)" [ref=e579]
+                - cell "pip install lxml" [ref=e580]:
+                  - code [ref=e581]: pip install lxml
+              - row "diff-match-patch 텍스트 diff (Google) pip install diff-match-patch" [ref=e582]:
+                - cell "diff-match-patch" [ref=e583]:
+                  - strong [ref=e584]: diff-match-patch
+                - cell "텍스트 diff (Google)" [ref=e585]
+                - cell "pip install diff-match-patch" [ref=e586]:
+                  - code [ref=e587]: pip install diff-match-patch
+              - row "Claude Code CLI Phase 3 행 생성 Claude Code 설치 필요" [ref=e588]:
+                - cell "Claude Code CLI" [ref=e589]:
+                  - strong [ref=e590]: Claude Code CLI
+                - cell "Phase 3 행 생성" [ref=e591]
+                - cell "Claude Code 설치 필요" [ref=e592]
+          - blockquote [ref=e593]:
+            - paragraph [ref=e594]:
+              - text: "[!note] 의존성 자동 설치 Skill 실행 시"
+              - code [ref=e595]: pip install python-docx lxml diff-match-patch
+              - text: 가 자동으로 실행됩니다.
+          - separator [ref=e596]
+          - heading "5. 주요 설계 결정과 이유 ¶" [level=2] [ref=e597]:
+            - text: 5. 주요 설계 결정과 이유
+            - link "¶" [ref=e598] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#5
+          - heading "\"Claude가 직접 diff하지 않는 이유\" ¶" [level=3] [ref=e599]:
+            - text: "\"Claude가 직접 diff하지 않는 이유\""
+            - link "¶" [ref=e600] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#claude-diff
+          - table [ref=e603]:
+            - rowgroup [ref=e604]:
+              - row "관점 Claude에게 맡기면 로컬 스크립트로 하면" [ref=e605]:
+                - columnheader "관점" [ref=e606]
+                - columnheader "Claude에게 맡기면" [ref=e607]
+                - columnheader "로컬 스크립트로 하면" [ref=e608]
+            - rowgroup [ref=e609]:
+              - row "재현성 같은 입력에 다른 결과 가능 동일 입력 = 동일 결과" [ref=e610]:
+                - cell "재현성" [ref=e611]:
+                  - strong [ref=e612]: 재현성
+                - cell "같은 입력에 다른 결과 가능" [ref=e613]
+                - cell "동일 입력 = 동일 결과" [ref=e614]
+              - row "감사 가능성 \"왜 이걸 변경으로 잡았는지\" 설명 불가 해시/좌표/diff patch로 증거 남김" [ref=e615]:
+                - cell "감사 가능성" [ref=e616]:
+                  - strong [ref=e617]: 감사 가능성
+                - cell "\"왜 이걸 변경으로 잡았는지\" 설명 불가" [ref=e618]
+                - cell "해시/좌표/diff patch로 증거 남김" [ref=e619]
+              - row "비용 100페이지 전체를 토큰으로 전송 변경된 부분만 전송" [ref=e620]:
+                - cell "비용" [ref=e621]:
+                  - strong [ref=e622]: 비용
+                - cell "100페이지 전체를 토큰으로 전송" [ref=e623]
+                - cell "변경된 부분만 전송" [ref=e624]
+              - row "정확도 표/이미지 변경을 놓칠 수 있음 셀 단위/해시 단위로 정밀 비교" [ref=e625]:
+                - cell "정확도" [ref=e626]:
+                  - strong [ref=e627]: 정확도
+                - cell "표/이미지 변경을 놓칠 수 있음" [ref=e628]
+                - cell "셀 단위/해시 단위로 정밀 비교" [ref=e629]
+          - paragraph [ref=e630]:
+            - text: →
+            - strong [ref=e631]: 결론
+            - text: ": 로컬에서 찾고, Claude는 정리만."
+          - heading "\"왜 XML 레벨로 파싱하는가\" ¶" [level=3] [ref=e632]:
+            - text: "\"왜 XML 레벨로 파싱하는가\""
+            - link "¶" [ref=e633] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#xml
+          - paragraph [ref=e634]:
+            - text: python-docx의
+            - code [ref=e635]: doc.paragraphs
+            - text: API는
+            - strong [ref=e636]: 표를 순서대로 포함하지 않습니다
+            - text: . 실제 문서에서는 "문단 → 표 → 문단 → 표" 순서로 콘텐츠가 섞여 있는데, 상위 API만 쓰면 표 20개가 순서 없이 별도 리스트로 나옵니다.
+          - paragraph [ref=e637]:
+            - text: →
+            - strong [ref=e638]: 해결
+            - text: ":"
+            - code [ref=e639]: lxml
+            - text: 으로
+            - code [ref=e640]: w:body
+            - text: 직계 자식(
+            - code [ref=e641]: w:p
+            - text: ","
+            - code [ref=e642]: w:tbl
+            - text: )을 직접 순회하여
+            - strong [ref=e643]: 혼합 콘텐츠 순서를 보존
+            - text: .
+          - heading "\"Heading 텍스트에 번호가 없는 문제\" ¶" [level=3] [ref=e644]:
+            - text: "\"Heading 텍스트에 번호가 없는 문제\""
+            - link "¶" [ref=e645] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#heading
+          - generic [ref=e647]:
+            - navigation [ref=e648]:
+              - button "클립보드로 복사" [ref=e649] [cursor=pointer]
+            - code [ref=e650]: "XML Heading 텍스트: \"Introduction\" Word 렌더링: \"1. Introduction\" TOC 항목: \"1.Introduction\""
+          - paragraph [ref=e651]:
+            - text: →
+            - strong [ref=e652]: 해결
+            - text: ":"
+            - code [ref=e653]: numbering.xml
+            - text: 에서 abstractNum 정의를 파싱하고, Heading 레벨별 카운터를 관리하여 번호를 복원. PoC 검증 완료.
+          - heading "\"왜 diff-match-patch인가\" ¶" [level=3] [ref=e654]:
+            - text: "\"왜 diff-match-patch인가\""
+            - link "¶" [ref=e655] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#diff-match-patch
+          - table [ref=e658]:
+            - rowgroup [ref=e659]:
+              - row "엔진 장점 단점" [ref=e660]:
+                - columnheader "엔진" [ref=e661]
+                - columnheader "장점" [ref=e662]
+                - columnheader "단점" [ref=e663]
+            - rowgroup [ref=e664]:
+              - row "difflib (표준) 설치 불필요, 사람 읽기 좋은 결과 최소 편집 보장 없음, 성능 이슈" [ref=e665]:
+                - cell "difflib (표준)" [ref=e666]:
+                  - code [ref=e667]: difflib
+                  - text: (표준)
+                - cell "설치 불필요, 사람 읽기 좋은 결과" [ref=e668]
+                - cell "최소 편집 보장 없음, 성능 이슈" [ref=e669]
+              - row "diff-match-patch (Google) character-level, 빠르고 정밀 외부 패키지 (무료)" [ref=e670]:
+                - cell "diff-match-patch (Google)" [ref=e671]:
+                  - code [ref=e672]: diff-match-patch
+                  - text: (Google)
+                - cell "character-level, 빠르고 정밀" [ref=e673]
+                - cell "외부 패키지 (무료)" [ref=e674]
+          - paragraph [ref=e675]:
+            - text: → 사용자가
+            - strong [ref=e676]: 더 정밀한 쪽
+            - text: 을 선호하여 diff-match-patch 선택.
+          - separator [ref=e677]
+          - heading "6. 변경대비표 양식 참고 ¶" [level=2] [ref=e678]:
+            - text: 6. 변경대비표 양식 참고
+            - link "¶" [ref=e679] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#6
+          - paragraph [ref=e680]: "실제 변경대비표 예시 (SAMPLE_PROTOCOL001 프로토콜):"
+          - table [ref=e683]:
+            - rowgroup [ref=e684]:
+              - row "Page Item Previous Version (Ver1.0) Current Version (Ver2.0) Note" [ref=e685]:
+                - columnheader "Page" [ref=e686]
+                - columnheader "Item" [ref=e687]
+                - columnheader "Previous Version (Ver1.0)" [ref=e688]
+                - columnheader "Current Version (Ver2.0)" [ref=e689]
+                - columnheader "Note" [ref=e690]
+            - rowgroup [ref=e691]:
+              - row "전체 임상시험 계획서 버전(머리글) Ver1.0 Ver2.0 버전 업데이트" [ref=e692]:
+                - cell "전체" [ref=e693]
+                - cell "임상시험 계획서 버전(머리글)" [ref=e694]
+                - cell "Ver1.0" [ref=e695]
+                - cell "Ver2.0" [ref=e696]
+                - cell "버전 업데이트" [ref=e697]
+              - row "전체 임상시험 계획서 날짜(머리글) 22Feb2024 20Mar2024 버전일 업데이트" [ref=e698]:
+                - cell "전체" [ref=e699]
+                - cell "임상시험 계획서 날짜(머리글)" [ref=e700]
+                - cell "22Feb2024" [ref=e701]
+                - cell "20Mar2024" [ref=e702]
+                - cell "버전일 업데이트" [ref=e703]
+              - row "12-14 1. 임상시험계획서 요약 > 1.1.1. 일차 및 이하 목적 (내용) (내용) 식이 영향 평가 항목 기재" [ref=e704]:
+                - cell "12-14" [ref=e705]
+                - cell "1. 임상시험계획서 요약 > 1.1.1. 일차 및 이하 목적" [ref=e706]
+                - cell "(내용)" [ref=e707]
+                - cell "(내용)" [ref=e708]
+                - cell "식이 영향 평가 항목 기재" [ref=e709]
+              - row "43-51 5. 임상시험 디자인 > 5.1. 디자인 설명 (내용) (내용) 시험 기간 추가 및 명시" [ref=e710]:
+                - cell "43-51" [ref=e711]
+                - cell "5. 임상시험 디자인 > 5.1. 디자인 설명" [ref=e712]
+                - cell "(내용)" [ref=e713]
+                - cell "(내용)" [ref=e714]
+                - cell "시험 기간 추가 및 명시" [ref=e715]
+          - separator [ref=e716]
+          - heading "7. 프로젝트 현황 ¶" [level=2] [ref=e717]:
+            - text: 7. 프로젝트 현황
+            - link "¶" [ref=e718] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#7
+          - heading "플랜 구조 ¶" [level=3] [ref=e719]:
+            - text: 플랜 구조
+            - link "¶" [ref=e720] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_17
+          - generic [ref=e722]:
+            - navigation [ref=e723]:
+              - button "클립보드로 복사" [ref=e724] [cursor=pointer]
+            - code [ref=e725]: .sisyphus/plans/ ├── docx-section-split.md Phase 1 (18 TODO, 5 commits) ├── phase2-section-diff.md Phase 2 (21 TODO, 5 commits) ├── phase3-claude-rows.md Phase 3 (18 TODO, 3 commits) ├── phase4-docx-export.md Phase 4 (18 TODO, 2 commits) └── phase5-skill-packaging.md Phase 5 (19 TODO, 3 commits)
+          - paragraph [ref=e726]:
+            - strong [ref=e727]: 총 94개 TODO, 18개 commit 예정
+          - heading "스크립트 목록 (Phase 1~4 합계 14개) ¶" [level=3] [ref=e728]:
+            - text: 스크립트 목록 (Phase 1~4 합계 14개)
+            - link "¶" [ref=e729] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#phase-14-14
+          - table [ref=e732]:
+            - rowgroup [ref=e733]:
+              - row "스크립트 Phase 역할" [ref=e734]:
+                - columnheader "스크립트" [ref=e735]
+                - columnheader "Phase" [ref=e736]
+                - columnheader "역할" [ref=e737]
+            - rowgroup [ref=e738]:
+              - row "extract_blocks.py 1 DOCX → blocks.json (XML 레벨 파싱)" [ref=e739]:
+                - cell "extract_blocks.py" [ref=e740]:
+                  - code [ref=e741]: extract_blocks.py
+                - cell "1" [ref=e742]
+                - cell "DOCX → blocks.json (XML 레벨 파싱)" [ref=e743]
+              - row "split_sections.py 1 blocks.json → section_index.json (adaptive 분할)" [ref=e744]:
+                - cell "split_sections.py" [ref=e745]:
+                  - code [ref=e746]: split_sections.py
+                - cell "1" [ref=e747]
+                - cell "blocks.json → section_index.json (adaptive 분할)" [ref=e748]
+              - row "match_sections.py 1 old↔new 섹션 매칭" [ref=e749]:
+                - cell "match_sections.py" [ref=e750]:
+                  - code [ref=e751]: match_sections.py
+                - cell "1" [ref=e752]
+                - cell "old↔new 섹션 매칭" [ref=e753]
+              - row "run_split.py 1 Phase 1 오케스트레이터" [ref=e754]:
+                - cell "run_split.py" [ref=e755]:
+                  - code [ref=e756]: run_split.py
+                - cell "1" [ref=e757]
+                - cell "Phase 1 오케스트레이터" [ref=e758]
+              - row "schema.py 2 change_candidates JSON 스키마" [ref=e759]:
+                - cell "schema.py" [ref=e760]:
+                  - code [ref=e761]: schema.py
+                - cell "2" [ref=e762]
+                - cell "change_candidates JSON 스키마" [ref=e763]
+              - row "diff_text.py 2 텍스트 diff + 이동 감지" [ref=e764]:
+                - cell "diff_text.py" [ref=e765]:
+                  - code [ref=e766]: diff_text.py
+                - cell "2" [ref=e767]
+                - cell "텍스트 diff + 이동 감지" [ref=e768]
+              - row "diff_tables.py 2 표 셀 단위 diff" [ref=e769]:
+                - cell "diff_tables.py" [ref=e770]:
+                  - code [ref=e771]: diff_tables.py
+                - cell "2" [ref=e772]
+                - cell "표 셀 단위 diff" [ref=e773]
+              - row "diff_media.py 2 이미지 해시 diff" [ref=e774]:
+                - cell "diff_media.py" [ref=e775]:
+                  - code [ref=e776]: diff_media.py
+                - cell "2" [ref=e777]
+                - cell "이미지 해시 diff" [ref=e778]
+              - row "diff_headers.py 2 Header/Footer diff" [ref=e779]:
+                - cell "diff_headers.py" [ref=e780]:
+                  - code [ref=e781]: diff_headers.py
+                - cell "2" [ref=e782]
+                - cell "Header/Footer diff" [ref=e783]
+              - row "run_diff.py 2 Phase 2 오케스트레이터" [ref=e784]:
+                - cell "run_diff.py" [ref=e785]:
+                  - code [ref=e786]: run_diff.py
+                - cell "2" [ref=e787]
+                - cell "Phase 2 오케스트레이터" [ref=e788]
+              - row "detect_language.py 3 한글 존재 여부로 언어 감지" [ref=e789]:
+                - cell "detect_language.py" [ref=e790]:
+                  - code [ref=e791]: detect_language.py
+                - cell "3" [ref=e792]
+                - cell "한글 존재 여부로 언어 감지" [ref=e793]
+              - row "generate_rows.py 3 Claude CLI 병렬 호출 + 재시도" [ref=e794]:
+                - cell "generate_rows.py" [ref=e795]:
+                  - code [ref=e796]: generate_rows.py
+                - cell "3" [ref=e797]
+                - cell "Claude CLI 병렬 호출 + 재시도" [ref=e798]
+              - row "run_rows.py 3 Phase 3 오케스트레이터" [ref=e799]:
+                - cell "run_rows.py" [ref=e800]:
+                  - code [ref=e801]: run_rows.py
+                - cell "3" [ref=e802]
+                - cell "Phase 3 오케스트레이터" [ref=e803]
+              - row "export_docx.py 4 변경대비표 DOCX 생성" [ref=e804]:
+                - cell "export_docx.py" [ref=e805]:
+                  - code [ref=e806]: export_docx.py
+                - cell "4" [ref=e807]
+                - cell "변경대비표 DOCX 생성" [ref=e808]
+              - row "run_export.py 4 Phase 4 오케스트레이터 + 파일명 생성" [ref=e809]:
+                - cell "run_export.py" [ref=e810]:
+                  - code [ref=e811]: run_export.py
+                - cell "4" [ref=e812]
+                - cell "Phase 4 오케스트레이터 + 파일명 생성" [ref=e813]
+          - heading "검증 과정에서 발견된 주요 GAP (해결 완료) ¶" [level=3] [ref=e814]:
+            - text: 검증 과정에서 발견된 주요 GAP (해결 완료)
+            - link "¶" [ref=e815] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#gap
+          - table [ref=e818]:
+            - rowgroup [ref=e819]:
+              - row "발견 심각도 해결" [ref=e820]:
+                - columnheader "발견" [ref=e821]
+                - columnheader "심각도" [ref=e822]
+                - columnheader "해결" [ref=e823]
+            - rowgroup [ref=e824]:
+              - row "Heading 자동 번호(numbering.xml) CRITICAL 번호 복원 로직 + PoC 검증" [ref=e825]:
+                - cell "Heading 자동 번호(numbering.xml)" [ref=e826]
+                - cell "CRITICAL" [ref=e827]
+                - cell "번호 복원 로직 + PoC 검증" [ref=e828]
+              - row "structured_output 필드 (result 아님) CRITICAL CLI 실제 테스트로 확인, 파싱 로직 수정" [ref=e829]:
+                - cell "structured_output 필드 (result 아님)" [ref=e830]:
+                  - code [ref=e831]: structured_output
+                  - text: 필드 (result 아님)
+                - cell "CRITICAL" [ref=e832]
+                - cell "CLI 실제 테스트로 확인, 파싱 로직 수정" [ref=e833]
+              - row "표 블록 JSON 스키마 미정의 MEDIUM Phase 1에 스키마 추가" [ref=e834]:
+                - cell "표 블록 JSON 스키마 미정의" [ref=e835]
+                - cell "MEDIUM" [ref=e836]
+                - cell "Phase 1에 스키마 추가" [ref=e837]
+              - row "--bare 모드 OAuth 건너뜀 MEDIUM 기본값에서 제외" [ref=e838]:
+                - cell "--bare 모드 OAuth 건너뜀" [ref=e839]:
+                  - code [ref=e840]: "--bare"
+                  - text: 모드 OAuth 건너뜀
+                - cell "MEDIUM" [ref=e841]
+                - cell "기본값에서 제외" [ref=e842]
+              - row "Landscape width/height 교체 필요 MEDIUM 페이지 설정에 명시" [ref=e843]:
+                - cell "Landscape width/height 교체 필요" [ref=e844]
+                - cell "MEDIUM" [ref=e845]
+                - cell "페이지 설정에 명시" [ref=e846]
+              - row "Skill 내 스크립트 import 경로 MEDIUM sys.path 조정 방식 명시" [ref=e847]:
+                - cell "Skill 내 스크립트 import 경로" [ref=e848]
+                - cell "MEDIUM" [ref=e849]
+                - cell "sys.path 조정 방식 명시" [ref=e850]
+              - row "텍스트 정규화 누락 MEDIUM diff 전 정규화 추가" [ref=e851]:
+                - cell "텍스트 정규화 누락" [ref=e852]
+                - cell "MEDIUM" [ref=e853]
+                - cell "diff 전 정규화 추가" [ref=e854]
+          - heading "예시 문서 ¶" [level=3] [ref=e855]:
+            - text: 예시 문서
+            - link "¶" [ref=e856] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#_18
+          - table [ref=e859]:
+            - rowgroup [ref=e860]:
+              - row "파일 용도" [ref=e861]:
+                - columnheader "파일" [ref=e862]
+                - columnheader "용도" [ref=e863]
+            - rowgroup [ref=e864]:
+              - row "SPONSOR_PROTOCOL001_...V1.0_...clean.docx 이전 버전 (V1.0)" [ref=e865]:
+                - cell "SPONSOR_PROTOCOL001_...V1.0_...clean.docx" [ref=e866]:
+                  - code [ref=e867]: SPONSOR_PROTOCOL001_...V1.0_...clean.docx
+                - cell "이전 버전 (V1.0)" [ref=e868]
+              - row "SPONSOR_PROTOCOL001_...V2_...Clean.docx 새 버전 (V2)" [ref=e869]:
+                - cell "SPONSOR_PROTOCOL001_...V2_...Clean.docx" [ref=e870]:
+                  - code [ref=e871]: SPONSOR_PROTOCOL001_...V2_...Clean.docx
+                - cell "새 버전 (V2)" [ref=e872]
+              - row "SAMPLE_PROTOCOL001_...Comparison Table...docx 변경대비표 양식 참고 (다른 프로토콜)" [ref=e873]:
+                - cell "SAMPLE_PROTOCOL001_...Comparison Table...docx" [ref=e874]:
+                  - code [ref=e875]: SAMPLE_PROTOCOL001_...Comparison Table...docx
+                - cell "변경대비표 양식 참고 (다른 프로토콜)" [ref=e876]:
+                  - strong [ref=e877]: 변경대비표 양식 참고
+                  - text: (다른 프로토콜)
+          - separator [ref=e878]
+          - heading "8. 실행 순서 ¶" [level=2] [ref=e879]:
+            - text: 8. 실행 순서
+            - link "¶" [ref=e880] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#8
+          - paragraph [ref=e881]: Phase 1부터 순서대로 실행하며, 각 Phase 완료 후 다음 Phase로 넘어갑니다.
+          - generic [ref=e883]:
+            - navigation [ref=e884]:
+              - button "클립보드로 복사" [ref=e885] [cursor=pointer]
+            - code [ref=e886]: Phase 1 (/start-work docx-section-split) └── 완료 → Phase 2 (/start-work phase2-section-diff) └── 완료 → Phase 3 (/start-work phase3-claude-rows) └── 완료 → Phase 4 (/start-work phase4-docx-export) └── 완료 → Phase 5 (/start-work phase5-skill-packaging) └── 완료 → "변경대비표 만들어줘" 테스트
+          - separator [ref=e887]
+          - heading "9. 향후 확장 가능성 ¶" [level=2] [ref=e888]:
+            - text: 9. 향후 확장 가능성
+            - link "¶" [ref=e889] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/%EB%B3%80%EA%B2%BD%EB%8C%80%EB%B9%84%ED%91%9C%20%EC%9E%90%EB%8F%99%ED%99%94%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%20%EB%AC%B8%EC%84%9C/#9
+          - list [ref=e890]:
+            - listitem [ref=e891]:
+              - strong [ref=e892]: 퍼셉추얼 해시
+              - text: ": 이미지가 리사이즈/재압축만 된 경우 \"유사\" 판정"
+            - listitem [ref=e893]:
+              - strong [ref=e894]: OCR
+              - text: ": 그림 속 텍스트 변경 감지 (Tesseract)"
+            - listitem [ref=e895]:
+              - strong [ref=e896]: PDF 페이지 매핑
+              - text: ": DOCX→PDF 변환 후 정확한 페이지 번호 부여"
+            - listitem [ref=e897]:
+              - strong [ref=e898]: Excel 출력
+              - text: ": 검토용 필터/정렬 기능이 필요한 경우"
+            - listitem [ref=e899]:
+              - strong [ref=e900]: 섹션 간 이동 감지
+              - text: ": 현재는 섹션 내 이동만 감지"
+      - button "맨위로":
+        - img
+        - text: 맨위로
+    - contentinfo [ref=e901]:
+      - generic [ref=e904]:
+        - text: Made with
+        - link "Material for MkDocs" [ref=e905] [cursor=pointer]:
+          - /url: https://squidfunk.github.io/mkdocs-material/
