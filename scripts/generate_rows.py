@@ -24,7 +24,7 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 PROMPTS_DIR = Path(__file__).parent.parent / "prompts"
-MAX_CANDIDATES_PER_CALL = 10
+MAX_CANDIDATES_PER_CALL = 30
 MAX_RETRIES = 2
 
 
@@ -56,18 +56,23 @@ def _build_user_prompt(section_path: str, candidates: list) -> str:
 [Change Candidates (JSON)]
 {candidates_json}
 
-For each candidate, generate a comparison table row:
-- page: Use the "page_hint" value from the candidate JSON. If empty, leave blank.
-- item: Write the FULL section hierarchy with section numbers, formatted as:
-  "N. Top Section\\n\\nN.M. Sub Section > specific changed item"
-  For example: "3. Study Plan\\n\\n3.1. Description of Overall Study Design and Plan"
-  Always include section numbers.
-- previous_version: Quote the key changed content from the previous version.
-- current_version: Quote the key changed content from the current version.
-- note: Briefly state the inferred reason for the change. If uncertain, prefix with "Estimated: ".
+Generate comparison table rows. IMPORTANT RULES:
 
-If multiple candidates describe the same logical change, merge them into one row.
-If a candidate has no meaningful change (whitespace-only differences), skip it."""
+1. AGGRESSIVE MERGING: Merge ALL candidates that share the same logical change theme into ONE row.
+   - All SOA (Schedule of Activities) table changes → ideally 1 row per Part (Part A, Part B, etc.)
+   - All terminology changes (e.g., 위험성→위해성) across a section → 1 row
+   - All table renumbering → 1 row
+   - PK sampling time changes → 1 row
+   - The goal is MINIMUM rows. A section with 10+ candidates should produce 1-3 rows, NOT 10.
+
+2. FORMAT:
+   - page: Use "page_hint" value. If empty, leave blank.
+   - item: Section hierarchy: "N. Top Section\\n\\nN.M. Sub Section"
+   - previous_version: Key changed content quoted concisely. Use "(...중략...)" for long text.
+   - current_version: Key changed content quoted concisely. Use "(...중략...)" for long text.
+   - note: Brief reason for change.
+
+3. SKIP whitespace-only or trivial spacing differences."""
 
 
 def _call_claude_cli(user_prompt: str, system_prompt: str, schema_str: str) -> dict:

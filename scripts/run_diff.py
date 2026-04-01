@@ -105,26 +105,30 @@ def main():
     old_page_map_path = work / "old" / "page_map.json"
     new_section_index_path = work / "new" / "section_index.json"
 
+    path_to_page = {}
     if new_page_map_path.exists() and new_section_index_path.exists():
         new_page_map = json.load(open(new_page_map_path, encoding="utf-8"))
         new_sections = json.load(open(new_section_index_path, encoding="utf-8"))
 
         # Build section_path -> page_str lookup
-        path_to_page = {}
         for sec in new_sections:
             pg = new_page_map.get(sec["section_id"], {})
             if pg.get("page_str"):
                 path_to_page[sec["section_path"]] = pg["page_str"]
 
-        # Add page_hint to each candidate
-        for c in all_candidates:
-            sp = c.get("section_path", "")
-            c["page_hint"] = path_to_page.get(sp, "")
-            # For header_footer, use "전체" (all pages)
-            if c.get("object_type") == "header_footer":
-                c["page_hint"] = "전체"
+    # Add page_hint to each candidate
+    for c in all_candidates:
+        sp = c.get("section_path", "")
+        c["page_hint"] = path_to_page.get(sp, "")
+        # For header_footer, use "전체" (all pages)
+        if c.get("object_type") == "header_footer":
+            c["page_hint"] = "전체"
+        # For front_matter, use "전체" or blank
+        if sp == "(front_matter)":
+            c["page_hint"] = ""
 
-        enriched = sum(1 for c in all_candidates if c.get("page_hint"))
+    enriched = sum(1 for c in all_candidates if c.get("page_hint"))
+    if enriched:
         print(f"  Page numbers enriched: {enriched}/{len(all_candidates)}")
 
     # Write output

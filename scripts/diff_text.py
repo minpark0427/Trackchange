@@ -29,11 +29,22 @@ def _get_section_blocks(blocks, start_idx, end_idx):
     return [b for b in blocks if start_idx <= b["idx"] < end_idx]
 
 
+# TOC and list-of-tables/figures styles to skip in diff
+_SKIP_STYLES = {
+    "TOC1", "TOC2", "TOC3", "TOC4", "TOC5", "TOC6", "TOC7", "TOC8", "TOC9",
+    "toc1", "toc2", "toc3", "toc4", "toc5", "toc6", "toc7", "toc8", "toc9",
+    "10", "21", "31", "40", "50", "6", "70", "80", "90",  # numeric TOC style IDs
+    "aa",  # list of tables/figures style
+}
+
+
 def _get_paragraphs(section_blocks):
-    """Extract paragraph blocks (text only, skip headings for content comparison)."""
+    """Extract paragraph blocks (text only, skip headings and TOC entries)."""
     return [
         b for b in section_blocks
-        if b["type"] == "paragraph" and not b.get("heading_level")
+        if b["type"] == "paragraph"
+        and not b.get("heading_level")
+        and b.get("style") not in _SKIP_STYLES
     ]
 
 

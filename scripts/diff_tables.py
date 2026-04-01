@@ -79,8 +79,12 @@ def _get_tables(section_blocks):
 
 
 def _diff_table_pair(old_table, new_table, section_path, table_num):
-    """Diff two matched tables cell-by-cell."""
-    candidates = []
+    """
+    Diff two matched tables and produce aggregated candidates.
+
+    Instead of one candidate per cell, aggregates all cell-level changes
+    into a single candidate per table with representative before/after samples.
+    """
     old_grid = _normalize_grid(old_table)
     new_grid = _normalize_grid(new_table)
 
@@ -89,37 +93,8 @@ def _diff_table_pair(old_table, new_table, section_path, table_num):
     old_cols = max((len(r) for r in old_grid), default=0)
     new_cols = max((len(r) for r in new_grid), default=0)
 
-    max_rows = max(old_rows, new_rows)
-    max_cols = max(old_cols, new_cols)
-
-    # Row addition/deletion
-    if old_rows != new_rows:
-        if new_rows > old_rows:
-            for ri in range(old_rows, new_rows):
-                row_text = " | ".join(new_grid[ri]) if ri < len(new_grid) else ""
-                candidates.append(make_candidate(
-                    section_path=section_path,
-                    object_type="table",
-                    change_type="add",
-                    location_hint=f"table={table_num},row={ri}",
-                    after=row_text[:500],
-                    evidence=f"row added (old had {old_rows} rows, new has {new_rows})",
-                    confidence=1.0,
-                ))
-        else:
-            for ri in range(new_rows, old_rows):
-                row_text = " | ".join(old_grid[ri]) if ri < len(old_grid) else ""
-                candidates.append(make_candidate(
-                    section_path=section_path,
-                    object_type="table",
-                    change_type="delete",
-                    location_hint=f"table={table_num},row={ri}",
-                    before=row_text[:500],
-                    evidence=f"row deleted (old had {old_rows} rows, new has {new_rows})",
-                    confidence=1.0,
-                ))
-
-    # Cell-level comparison for overlapping area
+    # Collect all cell-level changes
+    cell_changes = []  # (ri, ci, old_text, new_text)
     compare_rows = min(old_rows, new_rows)
     compare_cols = min(old_cols, new_cols)
 
@@ -128,37 +103,92 @@ def _diff_table_pair(old_table, new_table, section_path, table_num):
             old_cell = old_grid[ri][ci] if ci < len(old_grid[ri]) else ""
             new_cell = new_grid[ri][ci] if ci < len(new_grid[ri]) else ""
             if old_cell != new_cell:
-                candidates.append(make_candidate(
-                    section_path=section_path,
-                    object_type="table",
-                    change_type="modify",
-                    location_hint=f"table={table_num},row={ri},col={ci}",
-                    before=old_cell[:500],
-                    after=new_cell[:500],
-                    evidence=f"cell content changed at ({ri},{ci})",
-                    confidence=1.0,
-                ))
+                cell_changes.append((ri, ci, old_cell, new_cell))
 
-    # Column addition/deletion (only report at row 0 level)
+    # Collect added/deleted rows
+    added_rows = []
+    deleted_rows = []
+    if new_rows > old_rows:
+        for ri in range(old_rows, new_rows):
+            row_text = " | ".join(new_grid[ri]) if ri < len(new_grid) else ""
+            added_rows.append((ri, row_text))
+    elif old_rows > new_rows:
+        for ri in range(new_rows, old_rows):
+            row_text = " | ".join(old_grid[ri]) if ri < len(old_grid) else ""
+            deleted_rows.append((ri, row_text))
+
+    # If no changes at all, return empty
+    if not cell_changes and not added_rows and not deleted_rows and old_cols == new_cols:
+        return []
+
+    # Build aggregated candidate(s)
+    candidates = []
+
+    # Build a representative summary of changes
+    change_count = len(cell_changes)
+    changed_rows = sorted(set(ri for ri, ci, _, _ in cell_changes))
+
+    # Build before/after text showing key changed content (representative samples)
+    before_parts = []
+    after_parts = []
+    # Show up to 5 representative cell changes
+    for ri, ci, old_cell, new_cell in cell_changes[:5]:
+        if old_cell.strip():
+            before_parts.append(old_cell.strip())
+        if new_cell.strip():
+            after_parts.append(new_cell.strip())
+
+    # Add row additions/deletions info
+    if added_rows:
+        for ri, text in added_rows[:3]:
+            after_parts.append(f"[추가된 행 {ri}] {text.strip()}")
+    if deleted_rows:
+        for ri, text in deleted_rows[:3]:
+            before_parts.append(f"[삭제된 행 {ri}] {text.strip()}")
+
+    # Add column additions/deletions info with content from extra columns
+    if new_cols > old_cols:
+        for ri in range(min(3, compare_rows)):
+            extra = [new_grid[ri][ci] for ci in range(old_cols, new_cols) if ci < len(new_grid[ri])]
+            if any(c.strip() for c in extra):
+                after_parts.append(f"[추가된 열, 행 {ri}] {' | '.join(extra)}")
+    elif old_cols > new_cols:
+        for ri in range(min(3, compare_rows)):
+            extra = [old_grid[ri][ci] for ci in range(new_cols, old_cols) if ci < len(old_grid[ri])]
+            if any(c.strip() for c in extra):
+                before_parts.append(f"[삭제된 열, 행 {ri}] {' | '.join(extra)}")
+
+    before_text = "\n\n".join(before_parts)[:1000]
+    after_text = "\n\n".join(after_parts)[:1000]
+
+    # Evidence summary
+    evidence_parts = []
+    if cell_changes:
+        evidence_parts.append(f"{change_count} cells changed across rows {changed_rows[:10]}")
+    if added_rows:
+        evidence_parts.append(f"{len(added_rows)} rows added")
+    if deleted_rows:
+        evidence_parts.append(f"{len(deleted_rows)} rows deleted")
     if old_cols != new_cols:
-        if new_cols > old_cols:
-            candidates.append(make_candidate(
-                section_path=section_path,
-                object_type="table",
-                change_type="add",
-                location_hint=f"table={table_num},cols={old_cols}-{new_cols-1}",
-                evidence=f"columns added (old had {old_cols} cols, new has {new_cols})",
-                confidence=1.0,
-            ))
-        else:
-            candidates.append(make_candidate(
-                section_path=section_path,
-                object_type="table",
-                change_type="delete",
-                location_hint=f"table={table_num},cols={new_cols}-{old_cols-1}",
-                evidence=f"columns removed (old had {old_cols} cols, new has {new_cols})",
-                confidence=1.0,
-            ))
+        evidence_parts.append(f"columns: {old_cols}→{new_cols}")
+
+    # Determine change_type: use "modify" for any structural or content change
+    change_type = "modify"
+    if not cell_changes and not deleted_rows and old_cols == new_cols:
+        change_type = "add" if added_rows else "modify"
+    elif not cell_changes and not added_rows and old_cols == new_cols:
+        change_type = "delete" if deleted_rows else "modify"
+
+    candidates.append(make_candidate(
+        section_path=section_path,
+        object_type="table",
+        change_type=change_type,
+        location_hint=f"table={table_num} ({old_rows}×{old_cols}→{new_rows}×{new_cols})",
+        before=before_text,
+        after=after_text,
+        evidence="; ".join(evidence_parts),
+        confidence=1.0,
+    ))
 
     return candidates
 

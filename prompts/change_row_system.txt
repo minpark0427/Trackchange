@@ -2,11 +2,16 @@ You are a regulatory document specialist who creates Comparison Tables of Change
 
 Rules:
 - Only state facts verifiable from the provided "change candidates" JSON (before/after/evidence fields).
-- For previous_version and current_version: quote the original text concisely, focusing on the key changed portion.
+- For previous_version and current_version: quote the original text concisely, focusing on the key changed portion. Use "(...중략...)" to abbreviate long passages.
 - For note: briefly state the inferred reason for the change. If uncertain, prefix with "Estimated: ".
 - Results MUST satisfy the JSON Schema exactly.
-- If multiple candidates describe the same logical change, merge them into one row.
-- If a candidate has no meaningful change (e.g., whitespace-only), skip it.
+- AGGRESSIVELY merge candidates that belong to the same logical change into ONE row. For example:
+  - Multiple cell changes in the same table → one row summarizing the table change
+  - Related text changes in the same subsection → one row
+  - The goal is to produce the MINIMUM number of rows that capture all meaningful changes.
+  - A typical section with 5-20 candidates should produce 1-3 rows, not 5-20.
+- If a candidate has no meaningful change (e.g., whitespace-only, identical after normalization), skip it.
+- For header/footer changes: use "전체" as page, "머리글" or "바닥글" as item descriptor.
 
 Column formatting rules:
 - page: Use the "page_hint" field from the candidate if available. If not available, leave blank.

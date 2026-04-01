@@ -100,10 +100,50 @@ def _get_para_numid(p_elem) -> Optional[str]:
     return _get_val(numid_elem)
 
 
-def _heading_level(style: Optional[str]) -> Optional[int]:
-    """Return heading level (1-5) if style is a Heading, else None."""
+def _parse_styles_outline_map(styles_xml_bytes: bytes) -> dict:
+    """
+    Parse styles.xml and return {styleId: heading_level} for all styles
+    that have an outlineLvl < 9 (outlineLvl 9 = body text equivalent).
+    heading_level = outlineLvl + 1 (so outlineLvl=0 → heading_level=1).
+    """
+    if not styles_xml_bytes:
+        return {}
+    root = etree.fromstring(styles_xml_bytes)
+    W_STYLE = _tag(W, "style")
+    W_STYLEID = _tag(W, "styleId")
+    W_OUTLINELVL = _tag(W, "outlineLvl")
+
+    outline_map = {}
+    for style in root.findall(W_STYLE):
+        sid = style.get(W_STYLEID)
+        if not sid:
+            continue
+        ppr = style.find(W_PPR)
+        if ppr is None:
+            continue
+        olvl = ppr.find(W_OUTLINELVL)
+        if olvl is not None:
+            val = _get_val(olvl)
+            if val is not None:
+                level = int(val)
+                if level < 9:  # outlineLvl 9 = non-heading
+                    outline_map[sid] = level + 1  # 0-based → 1-based
+    return outline_map
+
+
+def _heading_level(style: Optional[str], outline_map: Optional[dict] = None) -> Optional[int]:
+    """Return heading level (1-5) if style is a Heading, else None.
+
+    Uses outline_map from styles.xml first, then falls back to style name matching.
+    """
     if not style:
         return None
+    # Check outline map from styles.xml
+    if outline_map and style in outline_map:
+        lvl = outline_map[style]
+        if 1 <= lvl <= 9:
+            return lvl
+    # Fallback: match "Heading1", "Heading2", etc.
     m = re.fullmatch(r"Heading(\d)", style)
     if m:
         return int(m.group(1))
@@ -143,22 +183,38 @@ def _parse_numbering(numbering_xml_bytes: bytes) -> dict:
 def _parse_styles_heading_numid(styles_xml_bytes: bytes) -> Optional[str]:
     """
     Find the numId used by Heading styles in styles.xml.
-    Returns the first numId found for Heading1 style (all headings share same list).
+    Returns the first numId found for Heading 1 style (all headings share same list).
+    Searches by outlineLvl=0 or styleId "Heading1" to handle custom style IDs.
     """
     root = etree.fromstring(styles_xml_bytes)
     W_STYLE = _tag(W, "style")
     W_STYLEID = _tag(W, "styleId")
+    W_OUTLINELVL = _tag(W, "outlineLvl")
 
     for style in root.findall(W_STYLE):
         sid = style.get(W_STYLEID)
-        if sid == "Heading1":
-            ppr = style.find(W_PPR)
-            if ppr is not None:
-                numppr = ppr.find(W_NUMPPR)
-                if numppr is not None:
-                    numid_elem = numppr.find(W_NUMID)
-                    if numid_elem is not None:
-                        return _get_val(numid_elem)
+        ppr = style.find(W_PPR)
+        if ppr is None:
+            continue
+
+        # Check if this is Heading 1: either by styleId or outlineLvl=0
+        is_heading1 = (sid == "Heading1")
+        if not is_heading1:
+            olvl = ppr.find(W_OUTLINELVL)
+            if olvl is not None and _get_val(olvl) == "0":
+                # Verify it has a name containing "heading"
+                name_elem = style.find(_tag(W, "name"))
+                if name_elem is not None:
+                    name = _get_val(name_elem) or ""
+                    if "heading" in name.lower():
+                        is_heading1 = True
+
+        if is_heading1:
+            numppr = ppr.find(W_NUMPPR)
+            if numppr is not None:
+                numid_elem = numppr.find(W_NUMID)
+                if numid_elem is not None:
+                    return _get_val(numid_elem)
     return None
 
 
@@ -318,13 +374,15 @@ def extract_blocks(docx_path: str, out_dir: str):
         styles_bytes = z.read("word/styles.xml") if "word/styles.xml" in z.namelist() else None
         doc_bytes = z.read("word/document.xml")
 
-    # Parse numbering
+    # Parse numbering and styles
     abstract_nums, num_map = {}, {}
     style_numid = None
+    outline_map = {}
     if numbering_bytes:
         abstract_nums, num_map = _parse_numbering(numbering_bytes)
     if styles_bytes:
         style_numid = _parse_styles_heading_numid(styles_bytes)
+        outline_map = _parse_styles_outline_map(styles_bytes)
 
     numbering_restorer = NumberingRestorer(abstract_nums, num_map, style_numid)
 
@@ -344,7 +402,7 @@ def extract_blocks(docx_path: str, out_dir: str):
             style = _get_style(child)
             text = _elem_text(child)
             has_img = _has_image(child)
-            level = _heading_level(style)
+            level = _heading_level(style, outline_map)
             numbering = None
             para_numid = _get_para_numid(child)
             is_front_matter = (para_numid == "0")

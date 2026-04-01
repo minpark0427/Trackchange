@@ -27,10 +27,20 @@ EXCLUDE_PATTERNS = [
     r"sponsor\s+protocol\s+signature",
     r"investigator\s+acknowledgement",
     r"clinical\s+(study|protocol)\s+synopsis",
+    r"목차",                      # Korean: table of contents
+    r"표\s*목차",                  # Korean: list of tables
+    r"그림\s*목차",                # Korean: list of figures
+    r"서명\s*페이지",              # Korean: signature page
+    r"SIGNATURE\s+PAGE",
 ]
 
 # Styles to exclude (TOC-related)
-EXCLUDE_STYLES = {"TOC1", "TOC2", "TOC3", "toc1", "toc2", "toc3"}
+# Standard: "TOC1", Korean documents may use numeric IDs like "10" (toc 1), "21" (toc 2), etc.
+EXCLUDE_STYLES = {
+    "TOC1", "TOC2", "TOC3", "TOC4", "TOC5",
+    "toc1", "toc2", "toc3", "toc4", "toc5",
+    "10", "21", "31", "40", "50", "6", "70", "80", "90",  # numeric TOC style IDs
+}
 
 
 def _is_excluded_heading(heading_text: str, heading_style: Optional[str]) -> bool:
@@ -99,6 +109,11 @@ def split_sections(blocks_path: str, out_path: str):
     # Build initial sections from primary headings
     # Each section: [heading_block_index, next_heading_block_index)
     raw_sections = []
+
+    # Add pre-heading front matter section (cover page, document history, etc.)
+    if heading_positions[0] > 0:
+        raw_sections.append((0, heading_positions[0]))
+
     for i, pos in enumerate(heading_positions):
         end = heading_positions[i + 1] if i + 1 < len(heading_positions) else len(blocks)
         raw_sections.append((pos, end))
@@ -137,6 +152,35 @@ def split_sections(blocks_path: str, out_path: str):
     for start, end in final_sections:
         heading_block = blocks[start]
         level = heading_block.get("heading_level")
+
+        # Handle pre-heading front matter section (no heading_level)
+        if level is None:
+            sec_id = f"sec_{sec_counter:04d}"
+            sec_counter += 1
+
+            # Check if front matter has only TOC content
+            has_toc = any(b.get("style") in EXCLUDE_STYLES for b in blocks[start:end])
+            # Check if front matter has substantive content (cover page, doc history)
+            has_content = any(
+                b.get("type") == "table" or (b.get("type") == "paragraph" and b.get("text", "").strip())
+                for b in blocks[start:end]
+                if b.get("style") not in EXCLUDE_STYLES
+            )
+
+            section_index.append({
+                "section_id": sec_id,
+                "section_path": "(front_matter)",
+                "heading_level": 0,
+                "heading_text": "(Front Matter)",
+                "start_block_idx": start,
+                "end_block_idx": end,
+                "block_count": end - start,
+                "excluded": not has_content,
+                "has_tables": _has_tables(blocks, start, end),
+                "has_images": _has_images(blocks, start, end),
+            })
+            continue
+
         numbering = heading_block.get("numbering")
         text = heading_block.get("text", "").strip()
         style = heading_block.get("style", "")
