@@ -27,6 +27,13 @@ jobs:
       - name: Install MkDocs and dependencies
         run: pip install mkdocs-material
 
+      - name: Prepare docs directory
+        run: |
+          mkdir -p docs
+          for f in *.md; do
+            [ -f "$f" ] && cp "$f" docs/
+          done
+
       - name: Build site
         run: mkdocs build --strict
 

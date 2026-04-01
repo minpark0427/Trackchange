@@ -13,3 +13,4 @@ build/
 *.docx
 !prompts/*.json
 site/
+docs/
